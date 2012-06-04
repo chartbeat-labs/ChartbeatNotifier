@@ -12,7 +12,46 @@
 		4A07E821157D37DD003624C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E820157D37DD003624C0 /* main.m */; };
 		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
 		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
+		4A07E849157D57E8003624C0 /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E840157D574F003624C0 /* SBJson.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A07E83F157D574F003624C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC12323D1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+		4A07E841157D574F003624C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC1232521391D5CC00131607;
+			remoteInfo = SBJsonTests;
+		};
+		4A07E843157D574F003624C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2626913920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		4A07E845157D574F003624C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2627313920FC7003D9994;
+			remoteInfo = "sbjson-iosTests";
+		};
+		4A07E847157D57D2003624C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC12323C1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartbeatNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +66,8 @@
 		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4A07E835157D574F003624C0 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
+		4A07E84B157D5BDC003624C0 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = "../json-framework/Classes/SBJson.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A07E849157D57E8003624C0 /* SBJson.framework in Frameworks */,
 				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +86,7 @@
 		4A07E805157D37DD003624C0 = {
 			isa = PBXGroup;
 			children = (
+				4A07E835157D574F003624C0 /* SBJson.xcodeproj */,
 				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
 				4A07E813157D37DD003624C0 /* Frameworks */,
 				4A07E811157D37DD003624C0 /* Products */,
@@ -80,6 +123,7 @@
 		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
 			isa = PBXGroup;
 			children = (
+				4A07E84B157D5BDC003624C0 /* SBJson.h */,
 				4A07E826157D37DD003624C0 /* AppDelegate.h */,
 				4A07E827157D37DD003624C0 /* AppDelegate.m */,
 				4A07E829157D37DD003624C0 /* MainMenu.xib */,
@@ -99,6 +143,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4A07E836157D574F003624C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E840157D574F003624C0 /* SBJson.framework */,
+				4A07E842157D574F003624C0 /* SBJsonTests.octest */,
+				4A07E844157D574F003624C0 /* libsbjson-ios.a */,
+				4A07E846157D574F003624C0 /* sbjson-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,6 +168,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4A07E848157D57D2003624C0 /* PBXTargetDependency */,
 			);
 			name = ChartbeatNotifier;
 			productName = ChartbeatNotifier;
@@ -138,12 +194,49 @@
 			mainGroup = 4A07E805157D37DD003624C0;
 			productRefGroup = 4A07E811157D37DD003624C0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4A07E836157D574F003624C0 /* Products */;
+					ProjectRef = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4A07E80F157D37DD003624C0 /* ChartbeatNotifier */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4A07E840157D574F003624C0 /* SBJson.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SBJson.framework;
+			remoteRef = 4A07E83F157D574F003624C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4A07E842157D574F003624C0 /* SBJsonTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SBJsonTests.octest;
+			remoteRef = 4A07E841157D574F003624C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4A07E844157D574F003624C0 /* libsbjson-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsbjson-ios.a";
+			remoteRef = 4A07E843157D574F003624C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4A07E846157D574F003624C0 /* sbjson-iosTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "sbjson-iosTests.octest";
+			remoteRef = 4A07E845157D574F003624C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4A07E80E157D37DD003624C0 /* Resources */ = {
@@ -168,6 +261,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A07E848157D57D2003624C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SBJson;
+			targetProxy = 4A07E847157D57D2003624C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4A07E81D157D37DD003624C0 /* InfoPlist.strings */ = {
