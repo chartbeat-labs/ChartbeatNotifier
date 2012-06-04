@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E814157D37DD003624C0 /* Cocoa.framework */; };
+		4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E81D157D37DD003624C0 /* InfoPlist.strings */; };
+		4A07E821157D37DD003624C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E820157D37DD003624C0 /* main.m */; };
+		4A07E825157D37DD003624C0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E823157D37DD003624C0 /* Credits.rtf */; };
+		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
+		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartbeatNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A07E814157D37DD003624C0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4A07E817157D37DD003624C0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4A07E818157D37DD003624C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4A07E819157D37DD003624C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */ = {isa = PBXFileReference; path = "ChartbeatNotifier-Info.plist"; sourceTree = "<group>"; };
+		4A07E81E157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4A07E820157D37DD003624C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */ = {isa = PBXFileReference; path = "ChartbeatNotifier-Prefix.pch"; sourceTree = "<group>"; };
+		4A07E824157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A07E80D157D37DD003624C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A07E805157D37DD003624C0 = {
+			isa = PBXGroup;
+			children = (
+				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
+				4A07E813157D37DD003624C0 /* Frameworks */,
+				4A07E811157D37DD003624C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A07E811157D37DD003624C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A07E813157D37DD003624C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E814157D37DD003624C0 /* Cocoa.framework */,
+				4A07E816157D37DD003624C0 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A07E816157D37DD003624C0 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E817157D37DD003624C0 /* AppKit.framework */,
+				4A07E818157D37DD003624C0 /* CoreData.framework */,
+				4A07E819157D37DD003624C0 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E826157D37DD003624C0 /* AppDelegate.h */,
+				4A07E827157D37DD003624C0 /* AppDelegate.m */,
+				4A07E829157D37DD003624C0 /* MainMenu.xib */,
+				4A07E81B157D37DD003624C0 /* Supporting Files */,
+			);
+			path = ChartbeatNotifier;
+			sourceTree = "<group>";
+		};
+		4A07E81B157D37DD003624C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */,
+				4A07E81D157D37DD003624C0 /* InfoPlist.strings */,
+				4A07E820157D37DD003624C0 /* main.m */,
+				4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */,
+				4A07E823157D37DD003624C0 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A07E80F157D37DD003624C0 /* ChartbeatNotifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "ChartbeatNotifier" */;
+			buildPhases = (
+				4A07E80C157D37DD003624C0 /* Sources */,
+				4A07E80D157D37DD003624C0 /* Frameworks */,
+				4A07E80E157D37DD003624C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChartbeatNotifier;
+			productName = ChartbeatNotifier;
+			productReference = 4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A07E807157D37DD003624C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Betaworks;
+			};
+			buildConfigurationList = 4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "ChartbeatNotifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4A07E805157D37DD003624C0;
+			productRefGroup = 4A07E811157D37DD003624C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A07E80F157D37DD003624C0 /* ChartbeatNotifier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A07E80E157D37DD003624C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */,
+				4A07E825157D37DD003624C0 /* Credits.rtf in Resources */,
+				4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A07E80C157D37DD003624C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A07E821157D37DD003624C0 /* main.m in Sources */,
+				4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A07E81D157D37DD003624C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A07E81E157D37DD003624C0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4A07E823157D37DD003624C0 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A07E824157D37DD003624C0 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		4A07E829157D37DD003624C0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A07E82A157D37DD003624C0 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A07E82C157D37DD003624C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4A07E82D157D37DD003624C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4A07E82F157D37DD003624C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
+				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4A07E830157D37DD003624C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
+				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "ChartbeatNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A07E82C157D37DD003624C0 /* Debug */,
+				4A07E82D157D37DD003624C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "ChartbeatNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A07E82F157D37DD003624C0 /* Debug */,
+				4A07E830157D37DD003624C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A07E807157D37DD003624C0 /* Project object */;
+}
