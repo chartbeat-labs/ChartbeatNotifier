@@ -10,7 +10,6 @@
 		4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E814157D37DD003624C0 /* Cocoa.framework */; };
 		4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E81D157D37DD003624C0 /* InfoPlist.strings */; };
 		4A07E821157D37DD003624C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E820157D37DD003624C0 /* main.m */; };
-		4A07E825157D37DD003624C0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E823157D37DD003624C0 /* Credits.rtf */; };
 		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
 		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
@@ -21,12 +20,11 @@
 		4A07E817157D37DD003624C0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4A07E818157D37DD003624C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4A07E819157D37DD003624C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */ = {isa = PBXFileReference; path = "ChartbeatNotifier-Info.plist"; sourceTree = "<group>"; };
+		4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChartbeatNotifier-Info.plist"; sourceTree = "<group>"; };
 		4A07E81E157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A07E820157D37DD003624C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */ = {isa = PBXFileReference; path = "ChartbeatNotifier-Prefix.pch"; sourceTree = "<group>"; };
-		4A07E824157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChartbeatNotifier-Prefix.pch"; sourceTree = "<group>"; };
+		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +95,6 @@
 				4A07E81D157D37DD003624C0 /* InfoPlist.strings */,
 				4A07E820157D37DD003624C0 /* main.m */,
 				4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */,
-				4A07E823157D37DD003624C0 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */,
-				4A07E825157D37DD003624C0 /* Credits.rtf in Resources */,
 				4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,14 +176,6 @@
 				4A07E81E157D37DD003624C0 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4A07E823157D37DD003624C0 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A07E824157D37DD003624C0 /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		4A07E829157D37DD003624C0 /* MainMenu.xib */ = {
