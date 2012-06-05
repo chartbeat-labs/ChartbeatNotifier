@@ -5,7 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "SBJson.h"
+#import <SBJson/SBJson.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
   NSWindow *window;
