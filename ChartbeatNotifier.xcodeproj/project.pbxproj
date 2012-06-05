@@ -7,51 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E814157D37DD003624C0 /* Cocoa.framework */; };
+		4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E814157D37DD003624C0 /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E81D157D37DD003624C0 /* InfoPlist.strings */; };
 		4A07E821157D37DD003624C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E820157D37DD003624C0 /* main.m */; };
 		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
 		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
-		4A07E849157D57E8003624C0 /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A07E840157D574F003624C0 /* SBJson.framework */; };
+		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
+		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4A07E83F157D574F003624C0 /* PBXContainerItemProxy */ = {
+		4A879E33157E52F20018E10C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			containerPortal = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BC12323D1391D5CC00131607;
 			remoteInfo = SBJson;
 		};
-		4A07E841157D574F003624C0 /* PBXContainerItemProxy */ = {
+		4A879E35157E52F20018E10C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			containerPortal = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BC1232521391D5CC00131607;
 			remoteInfo = SBJsonTests;
 		};
-		4A07E843157D574F003624C0 /* PBXContainerItemProxy */ = {
+		4A879E37157E52F20018E10C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			containerPortal = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCC2626913920FC7003D9994;
 			remoteInfo = "sbjson-ios";
 		};
-		4A07E845157D574F003624C0 /* PBXContainerItemProxy */ = {
+		4A879E39157E52F20018E10C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			containerPortal = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCC2627313920FC7003D9994;
 			remoteInfo = "sbjson-iosTests";
 		};
-		4A07E847157D57D2003624C0 /* PBXContainerItemProxy */ = {
+		4A879E3C157E53E80018E10C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+			containerPortal = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = BC12323C1391D5CC00131607;
 			remoteInfo = SBJson;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4A879E41157E56F20018E10C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartbeatNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,8 +80,7 @@
 		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4A07E835157D574F003624C0 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
-		4A07E84B157D5BDC003624C0 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = "../json-framework/Classes/SBJson.h"; sourceTree = "<group>"; };
+		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A07E849157D57E8003624C0 /* SBJson.framework in Frameworks */,
+				4A879E40157E56070018E10C /* SBJson.framework in Frameworks */,
 				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,7 +99,7 @@
 		4A07E805157D37DD003624C0 = {
 			isa = PBXGroup;
 			children = (
-				4A07E835157D574F003624C0 /* SBJson.xcodeproj */,
+				4A879E29157E52F10018E10C /* SBJson.xcodeproj */,
 				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
 				4A07E813157D37DD003624C0 /* Frameworks */,
 				4A07E811157D37DD003624C0 /* Products */,
@@ -123,7 +136,6 @@
 		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
 			isa = PBXGroup;
 			children = (
-				4A07E84B157D5BDC003624C0 /* SBJson.h */,
 				4A07E826157D37DD003624C0 /* AppDelegate.h */,
 				4A07E827157D37DD003624C0 /* AppDelegate.m */,
 				4A07E829157D37DD003624C0 /* MainMenu.xib */,
@@ -143,13 +155,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4A07E836157D574F003624C0 /* Products */ = {
+		4A879E2A157E52F10018E10C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A07E840157D574F003624C0 /* SBJson.framework */,
-				4A07E842157D574F003624C0 /* SBJsonTests.octest */,
-				4A07E844157D574F003624C0 /* libsbjson-ios.a */,
-				4A07E846157D574F003624C0 /* sbjson-iosTests.octest */,
+				4A879E34157E52F20018E10C /* SBJson.framework */,
+				4A879E36157E52F20018E10C /* SBJsonTests.octest */,
+				4A879E38157E52F20018E10C /* libsbjson-ios.a */,
+				4A879E3A157E52F20018E10C /* sbjson-iosTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,11 +176,12 @@
 				4A07E80C157D37DD003624C0 /* Sources */,
 				4A07E80D157D37DD003624C0 /* Frameworks */,
 				4A07E80E157D37DD003624C0 /* Resources */,
+				4A879E41157E56F20018E10C /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4A07E848157D57D2003624C0 /* PBXTargetDependency */,
+				4A879E3D157E53E80018E10C /* PBXTargetDependency */,
 			);
 			name = ChartbeatNotifier;
 			productName = ChartbeatNotifier;
@@ -196,8 +209,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4A07E836157D574F003624C0 /* Products */;
-					ProjectRef = 4A07E835157D574F003624C0 /* SBJson.xcodeproj */;
+					ProductGroup = 4A879E2A157E52F10018E10C /* Products */;
+					ProjectRef = 4A879E29157E52F10018E10C /* SBJson.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -208,32 +221,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4A07E840157D574F003624C0 /* SBJson.framework */ = {
+		4A879E34157E52F20018E10C /* SBJson.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SBJson.framework;
-			remoteRef = 4A07E83F157D574F003624C0 /* PBXContainerItemProxy */;
+			remoteRef = 4A879E33157E52F20018E10C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4A07E842157D574F003624C0 /* SBJsonTests.octest */ = {
+		4A879E36157E52F20018E10C /* SBJsonTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SBJsonTests.octest;
-			remoteRef = 4A07E841157D574F003624C0 /* PBXContainerItemProxy */;
+			remoteRef = 4A879E35157E52F20018E10C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4A07E844157D574F003624C0 /* libsbjson-ios.a */ = {
+		4A879E38157E52F20018E10C /* libsbjson-ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libsbjson-ios.a";
-			remoteRef = 4A07E843157D574F003624C0 /* PBXContainerItemProxy */;
+			remoteRef = 4A879E37157E52F20018E10C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4A07E846157D574F003624C0 /* sbjson-iosTests.octest */ = {
+		4A879E3A157E52F20018E10C /* sbjson-iosTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "sbjson-iosTests.octest";
-			remoteRef = 4A07E845157D574F003624C0 /* PBXContainerItemProxy */;
+			remoteRef = 4A879E39157E52F20018E10C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -263,10 +276,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4A07E848157D57D2003624C0 /* PBXTargetDependency */ = {
+		4A879E3D157E53E80018E10C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SBJson;
-			targetProxy = 4A07E847157D57D2003624C0 /* PBXContainerItemProxy */;
+			targetProxy = 4A879E3C157E53E80018E10C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -378,6 +391,7 @@
 				4A07E830157D37DD003624C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
