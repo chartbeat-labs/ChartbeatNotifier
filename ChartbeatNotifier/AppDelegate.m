@@ -30,7 +30,7 @@
   [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:@"apiKey"];
 }
 
--(void)awakeFromNib
+- (void)awakeFromNib
 {
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
   [statusItem setMenu:statusMenu];
@@ -38,7 +38,7 @@
   [statusItem setHighlightMode:YES];
 }
 
--(NSDictionary*)getJSON:(NSString*)aURL
+- (NSDictionary*)getJSON:(NSString *)aURL
 {
   // TODO: add error handling galore
   // TODO: make async
@@ -51,7 +51,7 @@
   return data;
 }
 
--(void)updateCounter:(NSTimer*)aTimer
+- (void)updateCounter:(NSTimer *)aTimer
 {
   NSLog(@"updateCounter()");
 
@@ -64,7 +64,7 @@
   [statusItem setTitle:title];
 }
 
--(IBAction)actionQuit:(id)sender
+- (IBAction)actionQuit:(id)sender
 {
   NSLog(@"actionQuit()");
   
