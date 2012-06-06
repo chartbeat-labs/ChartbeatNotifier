@@ -4,7 +4,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <Webkit/Webkit.h>
 #import <SBJson/SBJson.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
@@ -22,6 +22,7 @@
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
+@property (unsafe_unretained) IBOutlet WebView *webView;
 
 - (IBAction)actionQuit:(id)sender;
 

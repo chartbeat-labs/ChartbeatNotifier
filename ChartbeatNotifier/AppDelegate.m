@@ -7,6 +7,7 @@
 
 @implementation AppDelegate
 @synthesize fieldDomain;
+@synthesize webView;
 @synthesize fieldApiKey;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -22,6 +23,9 @@
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
  
+  NSString *dashUrl = [NSMutableString stringWithFormat:@"http://chartbeat.com/dashboard/?url=%@&k=%@", [self domain], [self apiKey]];
+  [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
+  
   // Kick off an update
   [self updateCounter:nil];
 }

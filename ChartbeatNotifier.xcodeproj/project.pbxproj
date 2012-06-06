@@ -12,6 +12,7 @@
 		4A07E821157D37DD003624C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E820157D37DD003624C0 /* main.m */; };
 		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
 		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
+		4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BA61115800CC900B89C52 /* WebKit.framework */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4A1BA61115800CC900B89C52 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */,
 				4A879E40157E56070018E10C /* SBJson.framework in Frameworks */,
 				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
 			);
@@ -99,6 +102,7 @@
 		4A07E805157D37DD003624C0 = {
 			isa = PBXGroup;
 			children = (
+				4A1BA61115800CC900B89C52 /* WebKit.framework */,
 				4A879E29157E52F10018E10C /* SBJson.xcodeproj */,
 				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
 				4A07E813157D37DD003624C0 /* Frameworks */,
