@@ -21,7 +21,7 @@
                                           repeats:YES];
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
-
+ 
   // Kick off an update
   [self updateCounter:nil];
 }
@@ -59,14 +59,28 @@
 - (void)updateCounter:(NSTimer *)aTimer
 {
   NSLog(@"updateCounter()");
+  [statusItem setTitle:[self getSiteStats]];
+}
 
+- (NSString*)getTotalTotal
+{
+  NSLog(@"getTotalTotal()");
+  
   NSDictionary *data = [self getJSON:@"http://api.chartbeat.com/cbtotal"];
-  NSString *totaltotal = [data objectForKey:@"total"];
+  NSString *count = [data objectForKey:@"total"];
 
-  NSMutableString  *title = [NSMutableString stringWithFormat:@"Total: %@", totaltotal];
-  NSLog(@"%@", title);
+  return count;
+}
 
-  [statusItem setTitle:title];
+- (NSString*)getSiteStats
+{
+  NSLog(@"getSiteStats()");
+  
+  NSString *url = [NSMutableString stringWithFormat:@"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@", [self apiKey], [self domain]];
+  NSDictionary *data = [self getJSON:url];
+  NSString *count = [data objectForKey:@"visits"];
+
+  return count;
 }
 
 - (IBAction)actionQuit:(id)aSender
