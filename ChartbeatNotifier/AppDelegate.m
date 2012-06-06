@@ -6,9 +6,12 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize fieldApiKey;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  NSLog(@"applicationDidFinishLaunching()");
+
   parser = [[SBJsonParser alloc] init];
 
   timer = [NSTimer scheduledTimerWithTimeInterval:3.0
@@ -49,7 +52,15 @@
   NSLog(@"%@", title);
 
   [statusItem setTitle:title];
+  
+  NSLog(@"value: %@", [fieldApiKey stringValue]);
 }
 
+-(IBAction)actionQuit:(id)sender
+{
+  NSLog(@"actionQuit()");
+  
+  [NSApp terminate: sender];
+}
 
 @end

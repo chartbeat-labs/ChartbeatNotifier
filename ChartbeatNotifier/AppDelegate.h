@@ -20,6 +20,8 @@
   NSTimer *timer;
 }
 
+@property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 
+- (IBAction)actionQuit:(id)sender;
 
 @end
