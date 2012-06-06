@@ -18,6 +18,9 @@
 
   /** Timer used to periodically update the counter */
   NSTimer *timer;
+
+  /** Used to receive backend data */
+  NSMutableData *receivedData;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;

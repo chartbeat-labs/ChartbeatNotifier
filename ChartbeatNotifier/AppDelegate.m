@@ -8,6 +8,7 @@
 @implementation AppDelegate
 
 NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
+NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@";
 
 #pragma mark -
 #pragma mark Properties
@@ -24,6 +25,8 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
 {
   NSLog(@"applicationDidFinishLaunching()");
 
+  receivedData = [NSMutableData data];
+
   parser = [[SBJsonParser alloc] init];
 
   timer = [NSTimer scheduledTimerWithTimeInterval:3.0
@@ -33,10 +36,11 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
   
+  // Load the dashboard into the webview (really should do on load...)
   [self loadDashboard];
   
   // Kick off an update
-  [self updateCounter:nil];
+  [self getSiteStats];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -71,46 +75,90 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
     
 }
   
-- (NSDictionary*)getJSON:(NSString *)aURL
-{
-  // TODO: add error handling galore
-  // TODO: make async
-  NSLog(@"getJSON(%@)", aURL);
-  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]];
-  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-  NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-  NSDictionary *data = [parser objectWithString:json_string error:nil];
-
-  return data;
-}
-
 - (void)updateCounter:(NSTimer *)aTimer
 {
   NSLog(@"updateCounter()");
-  [statusItem setTitle:[self getSiteStats]];
+  [self getSiteStats];
 }
 
-- (NSString*)getTotalTotal
-{
-  NSLog(@"getTotalTotal()");
-  
-  NSDictionary *data = [self getJSON:@"http://api.chartbeat.com/cbtotal"];
-  NSString *count = [data objectForKey:@"total"];
-
-  return count;
-}
-
-- (NSString*)getSiteStats
+- (void)getSiteStats
 {
   NSLog(@"getSiteStats()");
   
-  NSString *url = [NSMutableString stringWithFormat:@"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@", [self apiKey], [self domain]];
-  NSDictionary *data = [self getJSON:url];
-  NSString *count = [data objectForKey:@"visits"];
-
-  return count;
+  NSString *url = [NSMutableString stringWithFormat:kSiteStatsFormat, [self apiKey], [self domain]];
+  
+  // TODO: don't kick off if previous load is still running
+  // TODO: display errors to user
+  [self loadRequest:url];
 }
 
+
+#pragma mark -
+#pragma mark Request Handling
+- (void)loadRequest:(NSString *)aURL
+{
+  NSLog(@"loadRequest: %@", aURL);
+
+  NSURLRequest *theRequest;
+  theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]
+                                cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                            timeoutInterval:2.0];
+
+  // TODO: who owns this?
+  NSURLConnection *theConnection;
+  theConnection = [[NSURLConnection alloc] initWithRequest:theRequest 
+                                                  delegate:self];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
+{
+  NSLog(@"didReceiveResponse()");
+  
+  [receivedData setLength:0];
+
+  if (![response isKindOfClass: [NSHTTPURLResponse class]]) {
+    return;
+  }
+  
+  int statusCode = [(NSHTTPURLResponse*) response statusCode];
+  if (statusCode != 200) {
+    NSLog(@"Got non-200 response code: %d (%@)",
+          statusCode,
+          [response URL]);
+    return;
+  }
+  
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+  NSLog(@"didReceiveData()");
+
+  [receivedData appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error 
+{
+  NSLog(@"Request error: %@ (%@)",
+        [error localizedDescription],
+        [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+  
+  connection = nil;
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSLog(@"connectionDidFinishLoading()");
+  
+  connection = nil;
+
+  NSString *json_string = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+  [receivedData setLength:0];
+
+  NSDictionary *data = [parser objectWithString:json_string error:nil];
+  NSString *count = [data objectForKey:@"visits"];
+  [statusItem setTitle:count];
+}
 
 #pragma mark -
 #pragma mark Actions
