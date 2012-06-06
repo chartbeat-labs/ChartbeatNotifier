@@ -6,9 +6,17 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+
+#pragma mark -
+#pragma mark Properties
+
 @synthesize fieldDomain;
 @synthesize webView;
 @synthesize fieldApiKey;
+
+
+#pragma mark -
+#pragma mark Public methods
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -46,6 +54,10 @@
   [statusItem setTitle:@"(loading)"];
   [statusItem setHighlightMode:YES];
 }
+
+
+#pragma mark -
+#pragma mark Internal Methods
 
 - (NSDictionary*)getJSON:(NSString *)aURL
 {
@@ -87,12 +99,21 @@
   return count;
 }
 
+
+#pragma mark -
+#pragma mark Actions
+
 - (IBAction)actionQuit:(id)aSender
 {
   NSLog(@"actionQuit()");
   
   [NSApp terminate: aSender];
 }
+
+
+#pragma mark -
+#pragma mark Preference properties
+// TODO: move all this to a separate class
 
 - (NSString*)apiKey
 {
