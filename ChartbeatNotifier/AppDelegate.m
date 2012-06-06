@@ -7,6 +7,8 @@
 
 @implementation AppDelegate
 
+NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
+
 #pragma mark -
 #pragma mark Properties
 
@@ -30,9 +32,8 @@
                                           repeats:YES];
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
- 
-  NSString *dashUrl = [NSMutableString stringWithFormat:@"http://chartbeat.com/dashboard/?url=%@&k=%@", [self domain], [self apiKey]];
-  [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
+  
+  [self loadDashboard];
   
   // Kick off an update
   [self updateCounter:nil];
@@ -59,6 +60,17 @@
 #pragma mark -
 #pragma mark Internal Methods
 
+- (void)loadDashboard
+{
+  if (!([[self domain] length] && [[self apiKey] length])) {
+    return;
+  }
+
+  NSString *dashUrl = [NSMutableString stringWithFormat:kDashboardURLFormat, [self domain], [self apiKey]];
+  [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
+    
+}
+  
 - (NSDictionary*)getJSON:(NSString *)aURL
 {
   // TODO: add error handling galore
