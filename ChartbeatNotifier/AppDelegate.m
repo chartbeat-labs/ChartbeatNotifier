@@ -41,6 +41,7 @@
 -(NSDictionary*)getJSON:(NSString*)aURL
 {
   // TODO: add error handling galore
+  // TODO: make async
   NSLog(@"getJSON(%@)", aURL);
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]];
   NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
