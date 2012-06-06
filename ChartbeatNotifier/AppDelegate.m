@@ -19,6 +19,15 @@
                                          userInfo:nil
                                           repeats:YES];
   [self updateCounter:nil];
+  
+  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
+}
+
+- (void)applicationWillTerminate:(NSApplication *)application
+{
+  NSLog(@"applicationWillTerminate()");
+  
+  [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:@"apiKey"];
 }
 
 -(void)awakeFromNib
@@ -52,8 +61,6 @@
   NSLog(@"%@", title);
 
   [statusItem setTitle:title];
-  
-  NSLog(@"value: %@", [fieldApiKey stringValue]);
 }
 
 -(IBAction)actionQuit:(id)sender
@@ -61,6 +68,16 @@
   NSLog(@"actionQuit()");
   
   [NSApp terminate: sender];
+}
+
+- (NSString*)apiKey
+{
+  return [self.fieldApiKey stringValue];
+}
+
+- (void)setApiKey:(NSString *)apiKey
+{
+  [self.fieldApiKey setStringValue:apiKey];
 }
 
 @end
