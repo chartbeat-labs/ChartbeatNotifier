@@ -21,6 +21,7 @@
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
+@property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
 @property (nonatomic) NSString *apiKey;
 
 - (IBAction)actionQuit:(id)sender;

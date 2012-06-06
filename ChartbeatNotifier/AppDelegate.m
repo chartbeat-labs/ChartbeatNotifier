@@ -6,6 +6,7 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize fieldDomain;
 @synthesize fieldApiKey;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -19,15 +20,19 @@
                                          userInfo:nil
                                           repeats:YES];
   [self updateCounter:nil];
+
   
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
+  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
 {
   NSLog(@"applicationWillTerminate()");
   
+  // TODO: generalize
   [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:@"apiKey"];
+  [[NSUserDefaults standardUserDefaults] setValue:[self domain] forKey:@"domain"];
 }
 
 - (void)awakeFromNib
@@ -64,11 +69,11 @@
   [statusItem setTitle:title];
 }
 
-- (IBAction)actionQuit:(id)sender
+- (IBAction)actionQuit:(id)aSender
 {
   NSLog(@"actionQuit()");
   
-  [NSApp terminate: sender];
+  [NSApp terminate: aSender];
 }
 
 - (NSString*)apiKey
@@ -76,9 +81,19 @@
   return [self.fieldApiKey stringValue];
 }
 
-- (void)setApiKey:(NSString *)apiKey
+- (void)setApiKey:(NSString *)aApiKey
 {
-  [self.fieldApiKey setStringValue:apiKey];
+  [self.fieldApiKey setStringValue:aApiKey];
+}
+
+- (NSString*)domain
+{
+  return [self.fieldDomain stringValue];
+}
+
+- (void)setDomain:(NSString *)aDomain
+{
+  [self.fieldDomain setStringValue:aDomain];
 }
 
 @end
