@@ -19,11 +19,11 @@
                                            target:self selector:@selector(updateCounter:)
                                          userInfo:nil
                                           repeats:YES];
-  [self updateCounter:nil];
-
-  
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
+
+  // Kick off an update
+  [self updateCounter:nil];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
