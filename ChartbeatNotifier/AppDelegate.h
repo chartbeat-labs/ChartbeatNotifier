@@ -8,7 +8,6 @@
 #import <SBJson/SBJson.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
-  NSWindow *window;
   IBOutlet NSMenu *statusMenu;
 
   /** The status bar item */
@@ -21,6 +20,6 @@
   NSTimer *timer;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+
 
 @end

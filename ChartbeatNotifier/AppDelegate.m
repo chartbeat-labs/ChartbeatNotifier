@@ -7,8 +7,6 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   parser = [[SBJsonParser alloc] init];
