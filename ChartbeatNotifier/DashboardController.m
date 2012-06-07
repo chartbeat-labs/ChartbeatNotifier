@@ -24,6 +24,17 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
   [self loadDashboard];
 }
 
+-(void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+                                                          request:(NSURLRequest *)request frame:(WebFrame *)frame 
+                                                 decisionListener:(id < WebPolicyDecisionListener >)listener
+{
+  NSString *host = [[request URL] host];
+  if ([host isEqualToString:@"chartbeat.com"]) {
+    [listener use];
+  } else {
+    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+  }
+}
 
 - (void)loadDashboard
 {
