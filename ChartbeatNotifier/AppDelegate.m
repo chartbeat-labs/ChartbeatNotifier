@@ -8,7 +8,7 @@
 #import "Defines.h"
 
 /** If not defined, the status item counter will never be updated */
-#define UPDATE_COUNTER
+//#define UPDATE_COUNTER
 
 @implementation AppDelegate
 
@@ -250,8 +250,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   if (!dashboard) {
     dashboard = [[DashboardController alloc] init];
   }
-  NSLog(@"nibname: %@", [dashboard windowNibName]);
-  [dashboard showWindow:nil];
+  [dashboard loadDashboard:[self domain] apikey:[self apiKey]];
 }
 
 @end

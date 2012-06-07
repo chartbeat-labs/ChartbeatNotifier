@@ -9,8 +9,15 @@
 /** URL for the dashboard for a given domain */
 NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
 
+/** Window title format */
+NSString *const kTitleFormat = @"Dashboard: %@";
+
+
 @implementation DashboardController
 @synthesize webView;
+
+#pragma mark -
+#pragma mark Overridden functions
 
 - (id)init
 {
@@ -18,13 +25,7 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
   return self;
 }
 
-- (void)windowDidLoad
-{
-  [super windowDidLoad];
-  [self loadDashboard];
-}
-
--(void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+- (void)webView:(WebView *)webView decidePolicyForNavigationAction:(NSDictionary *)actionInformation
                                                           request:(NSURLRequest *)request frame:(WebFrame *)frame 
                                                  decisionListener:(id < WebPolicyDecisionListener >)listener
 {
@@ -36,15 +37,19 @@ NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k
   }
 }
 
-- (void)loadDashboard
-{
-  NSLog(@"DashboardController.loadDashboard");
 
-  // TODO: should get that from a pref controller or the app delegate?
-  NSString *domain = [[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain];
-  NSString *apiKey = [[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey];
+#pragma mark -
+#pragma mark Public functions
+- (void)loadDashboard:(NSString *)aDomain apikey:(NSString *)aApiKey
+{
+  NSLog(@"DashboardController.loadDashboard(%@, %@)", aDomain, aApiKey);
   
-  NSString *dashUrl = [NSMutableString stringWithFormat:kDashboardURLFormat, domain, apiKey];
+  [self showWindow:nil];
+
+  NSString *title = [NSString stringWithFormat:kTitleFormat, aDomain];
+  [[self window] setTitle:title];
+  
+  NSString *dashUrl = [NSMutableString stringWithFormat:kDashboardURLFormat, aDomain, aApiKey];
   [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
 }
 @end
