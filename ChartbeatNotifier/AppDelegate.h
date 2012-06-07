@@ -5,11 +5,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import <SBJson/SBJson.h>
-
+#import <Growl/Growl.h>
 
 #import "DashboardController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
   IBOutlet NSMenu *statusMenu;
 
   /** The status bar item */
@@ -26,6 +26,9 @@
   
   /** Dashboard window */
   DashboardController *dashboard;
+
+  /** True when we were abale to load the framework */
+  bool growlAvailable;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;

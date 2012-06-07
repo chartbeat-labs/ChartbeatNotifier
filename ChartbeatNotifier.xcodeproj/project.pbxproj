@@ -18,6 +18,11 @@
 		4A1BA62D1581233900B89C52 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA62C1581233900B89C52 /* Defines.m */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
+		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
+		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
+		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
+		E1F0E94D15810EBB005FF19A /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
+		E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		E1F0E94C15810E99005FF19A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E1F0E94D15810EBB005FF19A /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +106,10 @@
 		4A1BA62B158122F600B89C52 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		4A1BA62C1581233900B89C52 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
+		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
+		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
+		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +120,7 @@
 				4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */,
 				4A879E40157E56070018E10C /* SBJson.framework in Frameworks */,
 				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
+				E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +130,10 @@
 		4A07E805157D37DD003624C0 = {
 			isa = PBXGroup;
 			children = (
+				E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */,
+				E1F0E94A15810DD9005FF19A /* Growl.framework */,
+				E1F0E9411581045E005FF19A /* status.png */,
+				E1F0E93B15803941005FF19A /* export.icns */,
 				4A1BA61115800CC900B89C52 /* WebKit.framework */,
 				4A879E29157E52F10018E10C /* SBJson.xcodeproj */,
 				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
@@ -202,6 +226,7 @@
 				4A07E80D157D37DD003624C0 /* Frameworks */,
 				4A07E80E157D37DD003624C0 /* Resources */,
 				4A879E41157E56F20018E10C /* CopyFiles */,
+				E1F0E94C15810E99005FF19A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -284,6 +309,9 @@
 				4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */,
 				4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */,
 				4A1BA62215810C1E00B89C52 /* DashboardController.xib in Resources */,
+				E1F0E93C15803941005FF19A /* export.icns in Resources */,
+				E1F0E9421581045E005FF19A /* status.png in Resources */,
+				E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +409,10 @@
 		4A07E82F157D37DD003624C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
 				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";
@@ -392,6 +424,10 @@
 		4A07E830157D37DD003624C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
 				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";

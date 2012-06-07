@@ -49,6 +49,9 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   // Kick off an update
   [self getSiteStats];
 #endif
+
+  // Try to load growl
+  [self loadGrowl];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -63,11 +66,53 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 - (void)awakeFromNib
 {
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  [statusItem setHighlightMode:YES];
   [statusItem setMenu:statusMenu];
   [statusItem setTitle:@"(loading)"];
-  [statusItem setHighlightMode:YES];
+  [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
 }
 
+- (void)loadGrowl
+{
+    NSBundle *myBundle = [NSBundle bundleForClass:[AppDelegate class]];
+    NSString *growlPath = [[myBundle privateFrameworksPath]
+                           stringByAppendingPathComponent:@"Growl.framework"];
+    NSBundle *growlBundle = [NSBundle bundleWithPath:growlPath];
+    
+    if (growlBundle && [growlBundle load]) {
+        [GrowlApplicationBridge setGrowlDelegate:self];
+        growlAvailable = true;
+    } else {
+        NSLog(@"Could not load Growl.framework");
+        growlAvailable = false;
+    }
+
+}
+
+- (IBAction)notify:(NSString *)title: (NSString *)description
+{    
+    if (!growlAvailable) {
+        return;
+    }
+//	if([GAB respondsToSelector:@selector(notifyWithTitle:description:notificationName:iconData:priority:isSticky:clickContext:identifier:)]) {   
+//    }
+    Class growl = NSClassFromString(@"GrowlApplicationBridge");
+    [growl notifyWithTitle:title
+             description:description
+        notificationName:@"Event"
+                iconData:(NSData *)nil
+                priority:0
+                isSticky:YES
+            clickContext:nil
+              identifier:description];
+	
+}
+
+- (NSDictionary*) registrationDictionaryForGrowl {
+    NSString* path = [[NSBundle mainBundle] pathForResource: @"Growl Registration Ticket" ofType: @"growlRegDict"];
+    NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile: path];
+    return dictionary;
+}
 
 #pragma mark -
 #pragma mark Internal Methods
