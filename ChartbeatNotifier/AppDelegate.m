@@ -5,6 +5,8 @@
 
 #import "AppDelegate.h"
 
+
+#import "DashboardController.h"
 #import "Defines.h"
 
 /** If not defined, the status item counter will never be updated */
@@ -33,9 +35,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   NSLog(@"applicationDidFinishLaunching()");
 
   receivedData = [NSMutableData data];
-  dashboard = nil;
-  otherDashboard = nil;
-
+  dashboards = [[NSMutableDictionary alloc] init];
   parser = [[SBJsonParser alloc] init];
 
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
@@ -216,6 +216,17 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [self setTitle:json_string];
 }
 
+- (void)doOpenDashboard:(NSString *)aDomain
+{
+  NSLog(@"doOpenDashboard(%@)", aDomain);
+
+  DashboardController *dashboard = [dashboards objectForKey:aDomain];
+  if (!dashboard) {
+    dashboard = [[DashboardController alloc] init];
+    [dashboards setValue:dashboard forKey:aDomain];
+  }
+  [dashboard loadDashboard:aDomain apikey:[self apiKey]];
+}
 
 #pragma mark -
 #pragma mark Preference properties
@@ -250,18 +261,13 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   // TODO: ask user for this
   NSString *domain = @"foxnews.com";
-  otherDashboard = [[DashboardController alloc] init];
-  [otherDashboard loadDashboard:domain apikey:[self apiKey]];
+  [self doOpenDashboard:domain];
 }
 
 - (IBAction)openDefaultDashboard:(id)sender
 {
   NSLog(@"openDefaultDashboard()");
-  
-  if (!dashboard) {
-    dashboard = [[DashboardController alloc] init];
-  }
-  [dashboard loadDashboard:[self domain] apikey:[self apiKey]];
+  [self doOpenDashboard:[self domain]];
 }
 
 @end

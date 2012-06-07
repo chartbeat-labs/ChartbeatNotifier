@@ -7,8 +7,6 @@
 #import <SBJson/SBJson.h>
 #import <Growl/Growl.h>
 
-#import "DashboardController.h"
-
 @interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
   IBOutlet NSMenu *statusMenu;
 
@@ -24,14 +22,9 @@
   /** Used to receive backend data */
   NSMutableData *receivedData;
   
-  /** Default dashboard window */
+  /** Dashboard windows */
   // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...
-  DashboardController *dashboard;
-
-  /** Dashboard window */
-  // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...
-  // TODO: maintain a list of windows? There must be a way for the window to hold on to a ref to itself until closed.
-  DashboardController *otherDashboard;
+  NSDictionary *dashboards;
 
   /** True when we were abale to load the framework */
   bool growlAvailable;
