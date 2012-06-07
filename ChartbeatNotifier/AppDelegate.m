@@ -160,16 +160,6 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
   [statusItem setTitle:count];
 }
 
-#pragma mark -
-#pragma mark Actions
-
-- (IBAction)actionQuit:(id)aSender
-{
-  NSLog(@"actionQuit()");
-  
-  [NSApp terminate: aSender];
-}
-
 
 #pragma mark -
 #pragma mark Preference properties

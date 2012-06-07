@@ -27,6 +27,4 @@
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
 @property (unsafe_unretained) IBOutlet WebView *webView;
 
-- (IBAction)actionQuit:(id)sender;
-
 @end
