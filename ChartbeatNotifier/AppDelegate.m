@@ -5,13 +5,9 @@
 
 #import "AppDelegate.h"
 
+#import "Defines.h"
+
 @implementation AppDelegate
-
-/** URL for the dashboard for a given domain */
-NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
-
-/** URL for site stats for a givem domain */
-NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@";
 
 /** How often to update the site stats (seconds) */
 NSTimeInterval const kRequestInterval = 3;
@@ -23,7 +19,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 #pragma mark Properties
 
 @synthesize fieldDomain;
-@synthesize webView;
 @synthesize fieldApiKey;
 
 
@@ -35,6 +30,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   NSLog(@"applicationDidFinishLaunching()");
 
   receivedData = [NSMutableData data];
+  dashboard = nil;
 
   parser = [[SBJsonParser alloc] init];
 
@@ -42,11 +38,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
                                            target:self selector:@selector(updateCounter:)
                                          userInfo:nil
                                           repeats:YES];
-  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"]];
-  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:@"domain"]];
-  
-  // Load the dashboard into the webview (really should do on load...)
-  [self loadDashboard];
+  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
+  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
   
   // Kick off an update
   [self getSiteStats];
@@ -57,8 +50,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   NSLog(@"applicationWillTerminate()");
   
   // TODO: generalize
-  [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:@"apiKey"];
-  [[NSUserDefaults standardUserDefaults] setValue:[self domain] forKey:@"domain"];
+  [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:kPrefApiKey];
+  [[NSUserDefaults standardUserDefaults] setValue:[self domain] forKey:kPrefDomain];
 }
 
 - (void)awakeFromNib
@@ -72,18 +65,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Internal Methods
-
-/** loads the dashboard in the webview */
-- (void)loadDashboard
-{
-  if (!([[self domain] length] && [[self apiKey] length])) {
-    return;
-  }
-
-  NSString *dashUrl = [NSMutableString stringWithFormat:kDashboardURLFormat, [self domain], [self apiKey]];
-  [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
-    
-}
 
 /** called by the timer when the stats counter needs to get updated */
 - (void)updateCounter:(NSTimer *)aTimer
@@ -205,6 +186,20 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 - (void)setDomain:(NSString *)aDomain
 {
   [self.fieldDomain setStringValue:aDomain];
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)openDashboard:(id)sender
+{
+  NSLog(@"openDashboard()");
+
+  if (!dashboard) {
+    dashboard = [[DashboardController alloc] init];
+  }
+  NSLog(@"nibname: %@", [dashboard windowNibName]);
+  [dashboard showWindow:nil];
 }
 
 @end

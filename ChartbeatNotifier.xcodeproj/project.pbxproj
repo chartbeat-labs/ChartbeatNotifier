@@ -13,6 +13,9 @@
 		4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E827157D37DD003624C0 /* AppDelegate.m */; };
 		4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A07E829157D37DD003624C0 /* MainMenu.xib */; };
 		4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BA61115800CC900B89C52 /* WebKit.framework */; };
+		4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA61F15810C1E00B89C52 /* DashboardController.m */; };
+		4A1BA62215810C1E00B89C52 /* DashboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BA62015810C1E00B89C52 /* DashboardController.xib */; };
+		4A1BA62D1581233900B89C52 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA62C1581233900B89C52 /* Defines.m */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,11 @@
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4A1BA61115800CC900B89C52 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		4A1BA61E15810C1E00B89C52 /* DashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardController.h; sourceTree = "<group>"; };
+		4A1BA61F15810C1E00B89C52 /* DashboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardController.m; sourceTree = "<group>"; };
+		4A1BA62015810C1E00B89C52 /* DashboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardController.xib; sourceTree = "<group>"; };
+		4A1BA62B158122F600B89C52 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		4A1BA62C1581233900B89C52 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +148,9 @@
 		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
 			isa = PBXGroup;
 			children = (
+				4A1BA62B158122F600B89C52 /* Defines.h */,
+				4A1BA62C1581233900B89C52 /* Defines.m */,
+				4A1BA61D15810BF300B89C52 /* UI */,
 				4A07E826157D37DD003624C0 /* AppDelegate.h */,
 				4A07E827157D37DD003624C0 /* AppDelegate.m */,
 				4A07E829157D37DD003624C0 /* MainMenu.xib */,
@@ -157,6 +168,16 @@
 				4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A1BA61D15810BF300B89C52 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4A1BA61E15810C1E00B89C52 /* DashboardController.h */,
+				4A1BA61F15810C1E00B89C52 /* DashboardController.m */,
+				4A1BA62015810C1E00B89C52 /* DashboardController.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		4A879E2A157E52F10018E10C /* Products */ = {
@@ -262,6 +283,7 @@
 			files = (
 				4A07E81F157D37DD003624C0 /* InfoPlist.strings in Resources */,
 				4A07E82B157D37DD003624C0 /* MainMenu.xib in Resources */,
+				4A1BA62215810C1E00B89C52 /* DashboardController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +296,8 @@
 			files = (
 				4A07E821157D37DD003624C0 /* main.m in Sources */,
 				4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */,
+				4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */,
+				4A1BA62D1581233900B89C52 /* Defines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

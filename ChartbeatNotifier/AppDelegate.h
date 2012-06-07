@@ -4,8 +4,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Webkit/Webkit.h>
 #import <SBJson/SBJson.h>
+
+
+#import "DashboardController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
   IBOutlet NSMenu *statusMenu;
@@ -21,10 +23,17 @@
 
   /** Used to receive backend data */
   NSMutableData *receivedData;
+  
+  /** Dashboard window */
+  DashboardController *dashboard;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
-@property (unsafe_unretained) IBOutlet WebView *webView;
+
+@property NSString *domain;
+@property NSString *apiKey;
+
+- (IBAction)openDashboard:(id)sender;
 
 @end
