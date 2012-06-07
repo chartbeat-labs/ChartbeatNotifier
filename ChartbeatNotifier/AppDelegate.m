@@ -28,7 +28,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 
 #pragma mark -
-#pragma mark Public methods
+#pragma mark Overridden methods
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -74,6 +74,9 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
 
+#pragma mark -
+#pragma mark Internal Methods
+
 - (void)loadGrowl
 {
     NSBundle *myBundle = [NSBundle bundleForClass:[AppDelegate class]];
@@ -110,14 +113,12 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 	
 }
 
-- (NSDictionary*) registrationDictionaryForGrowl {
+- (NSDictionary*) registrationDictionaryForGrowl
+{
     NSString* path = [[NSBundle mainBundle] pathForResource: @"Growl Registration Ticket" ofType: @"growlRegDict"];
     NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile: path];
     return dictionary;
 }
-
-#pragma mark -
-#pragma mark Internal Methods
 
 /** called by the timer when the stats counter needs to get updated */
 - (void)updateCounter:(NSTimer *)aTimer
@@ -153,6 +154,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Request Handling
+// TODO: move all this to a separate class
+
 - (void)loadRequest:(NSString *)aURL
 {
   NSLog(@"loadRequest: %@", aURL);
