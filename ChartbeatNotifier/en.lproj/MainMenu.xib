@@ -48,7 +48,7 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="446350951">
 						<reference key="NSMenu" ref="619394008"/>
-						<string key="NSTitle">Open Dashboard</string>
+						<string key="NSTitle">Open Default Dashboard</string>
 						<string key="NSKeyEquiv">d</string>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -245,8 +245,17 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="855145013">
 									<reference key="NSMenu" ref="215621238"/>
-									<string key="NSTitle">Open Dashboard</string>
+									<string key="NSTitle">Open Default Dashboard</string>
 									<string key="NSKeyEquiv">d</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="171491900"/>
+									<reference key="NSMixedImage" ref="1070893811"/>
+								</object>
+								<object class="NSMenuItem" id="215793747">
+									<reference key="NSMenu" ref="215621238"/>
+									<string key="NSTitle">Open Dashboard...</string>
+									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="171491900"/>
@@ -322,7 +331,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="33404943">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTextField" id="128891430">
@@ -421,7 +430,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{89, 17}, {317, 22}}</string>
 							<reference key="NSSuperview" ref="33404943"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="249685794">
@@ -438,7 +446,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{426, 93}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="807271186"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
@@ -523,19 +530,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">openDashboard:</string>
+						<string key="label">openDefaultDashboard:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="855145013"/>
 					</object>
-					<int key="connectionID">909</int>
+					<int key="connectionID">912</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openDefaultDashboard:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="446350951"/>
+					</object>
+					<int key="connectionID">913</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">openDashboard:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="446350951"/>
+						<reference key="destination" ref="215793747"/>
 					</object>
-					<int key="connectionID">910</int>
+					<int key="connectionID">914</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1045,6 +1060,7 @@
 						<reference key="object" ref="215621238"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="855145013"/>
+							<reference ref="215793747"/>
 						</array>
 						<reference key="parent" ref="882500745"/>
 					</object>
@@ -1087,6 +1103,11 @@
 						<int key="objectID">899</int>
 						<reference key="object" ref="334740756"/>
 						<reference key="parent" ref="619394008"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">911</int>
+						<reference key="object" ref="215793747"/>
+						<reference key="parent" ref="215621238"/>
 					</object>
 				</array>
 			</object>
@@ -1169,12 +1190,13 @@
 				<string key="896.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="898.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="899.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="911.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">910</int>
+			<int key="maxID">914</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

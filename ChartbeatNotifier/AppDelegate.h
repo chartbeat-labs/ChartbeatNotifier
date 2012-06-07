@@ -24,8 +24,14 @@
   /** Used to receive backend data */
   NSMutableData *receivedData;
   
-  /** Dashboard window */
+  /** Default dashboard window */
+  // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...
   DashboardController *dashboard;
+
+  /** Dashboard window */
+  // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...
+  // TODO: maintain a list of windows? There must be a way for the window to hold on to a ref to itself until closed.
+  DashboardController *otherDashboard;
 
   /** True when we were abale to load the framework */
   bool growlAvailable;
@@ -38,5 +44,6 @@
 @property NSString *apiKey;
 
 - (IBAction)openDashboard:(id)sender;
+- (IBAction)openDefaultDashboard:(id)sender;
 
 @end

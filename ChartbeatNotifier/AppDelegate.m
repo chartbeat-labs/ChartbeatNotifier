@@ -34,6 +34,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   receivedData = [NSMutableData data];
   dashboard = nil;
+  otherDashboard = nil;
 
   parser = [[SBJsonParser alloc] init];
 
@@ -247,6 +248,16 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 {
   NSLog(@"openDashboard()");
 
+  // TODO: ask user for this
+  NSString *domain = @"foxnews.com";
+  otherDashboard = [[DashboardController alloc] init];
+  [otherDashboard loadDashboard:domain apikey:[self apiKey]];
+}
+
+- (IBAction)openDefaultDashboard:(id)sender
+{
+  NSLog(@"openDefaultDashboard()");
+  
   if (!dashboard) {
     dashboard = [[DashboardController alloc] init];
   }
