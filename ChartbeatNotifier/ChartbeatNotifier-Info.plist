@@ -29,7 +29,7 @@
 	<key>LSUIElement</key>
 	<false/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 Betaworks. All rights reserved.</string>
+	<string>Copyright © 2012 Chartbeat, Inc. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
