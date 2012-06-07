@@ -7,6 +7,9 @@
 
 #import "Defines.h"
 
+/** If not defined, the status item counter will never be updated */
+#define UPDATE_COUNTER
+
 @implementation AppDelegate
 
 /** How often to update the site stats (seconds) */
@@ -34,15 +37,18 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   parser = [[SBJsonParser alloc] init];
 
+  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
+  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
+
+#ifdef UPDATE_COUNTER
   timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
                                            target:self selector:@selector(updateCounter:)
                                          userInfo:nil
                                           repeats:YES];
-  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
-  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
   
   // Kick off an update
   [self getSiteStats];
+#endif
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
