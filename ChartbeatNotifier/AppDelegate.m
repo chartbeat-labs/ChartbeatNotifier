@@ -9,6 +9,8 @@
 
 NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
 NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@";
+NSTimeInterval const kRequestInterval = 3;
+NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Properties
@@ -29,7 +31,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 
   parser = [[SBJsonParser alloc] init];
 
-  timer = [NSTimer scheduledTimerWithTimeInterval:3.0
+  timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
                                            target:self selector:@selector(updateCounter:)
                                          userInfo:nil
                                           repeats:YES];
@@ -102,7 +104,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
   NSURLRequest *theRequest;
   theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]
                                 cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                            timeoutInterval:2.0];
+                            timeoutInterval:kRequestTimeoutInterval];
 
   // TODO: who owns this?
   NSURLConnection *theConnection;
