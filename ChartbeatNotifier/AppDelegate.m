@@ -7,9 +7,16 @@
 
 @implementation AppDelegate
 
+/** URL for the dashboard for a given domain */
 NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
+
+/** URL for site stats for a givem domain */
 NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?apikey=%@&host=%@";
+
+/** How often to update the site stats (seconds) */
 NSTimeInterval const kRequestInterval = 3;
+
+/** Timeout for site stats request (seconds) */
 NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
@@ -66,6 +73,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 #pragma mark -
 #pragma mark Internal Methods
 
+/** loads the dashboard in the webview */
 - (void)loadDashboard
 {
   if (!([[self domain] length] && [[self apiKey] length])) {
@@ -76,13 +84,15 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
     
 }
-  
+
+/** called by the timer when the stats counter needs to get updated */
 - (void)updateCounter:(NSTimer *)aTimer
 {
   NSLog(@"updateCounter()");
   [self getSiteStats];
 }
 
+/** Initiate getting fresh site stats from the backend */
 - (void)getSiteStats
 {
   NSLog(@"getSiteStats()");
