@@ -8,7 +8,7 @@
 #import "Defines.h"
 
 /** If not defined, the status item counter will never be updated */
-//#define UPDATE_COUNTER
+#define UPDATE_COUNTER
 
 @implementation AppDelegate
 
