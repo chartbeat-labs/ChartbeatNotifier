@@ -133,11 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */,
-				E1F0E94A15810DD9005FF19A /* Growl.framework */,
 				E1F0E9411581045E005FF19A /* status.png */,
 				E1FFBEDA1581322000CDCF0F /* activestatus.png */,
 				E1F0E93B15803941005FF19A /* export.icns */,
-				4A1BA61115800CC900B89C52 /* WebKit.framework */,
 				4A879E29157E52F10018E10C /* SBJson.xcodeproj */,
 				4A07E81A157D37DD003624C0 /* ChartbeatNotifier */,
 				4A07E813157D37DD003624C0 /* Frameworks */,
@@ -156,6 +154,8 @@
 		4A07E813157D37DD003624C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A1BA61115800CC900B89C52 /* WebKit.framework */,
+				E1F0E94A15810DD9005FF19A /* Growl.framework */,
 				4A07E814157D37DD003624C0 /* Cocoa.framework */,
 				4A07E816157D37DD003624C0 /* Other Frameworks */,
 			);
