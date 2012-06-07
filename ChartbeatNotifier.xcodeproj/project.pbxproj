@@ -23,6 +23,7 @@
 		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
 		E1F0E94D15810EBB005FF19A /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
 		E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */; };
+		E1FFBEDB1581322000CDCF0F /* activestatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E1FFBEDA1581322000CDCF0F /* activestatus.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		E1FFBEDA1581322000CDCF0F /* activestatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = activestatus.png; path = icon/activestatus.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */,
 				E1F0E94A15810DD9005FF19A /* Growl.framework */,
 				E1F0E9411581045E005FF19A /* status.png */,
+				E1FFBEDA1581322000CDCF0F /* activestatus.png */,
 				E1F0E93B15803941005FF19A /* export.icns */,
 				4A1BA61115800CC900B89C52 /* WebKit.framework */,
 				4A879E29157E52F10018E10C /* SBJson.xcodeproj */,
@@ -312,6 +315,7 @@
 				E1F0E93C15803941005FF19A /* export.icns in Resources */,
 				E1F0E9421581045E005FF19A /* status.png in Resources */,
 				E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */,
+				E1FFBEDB1581322000CDCF0F /* activestatus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

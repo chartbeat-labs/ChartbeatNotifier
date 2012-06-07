@@ -70,6 +70,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [statusItem setMenu:statusMenu];
   [statusItem setTitle:@"(loading)"];
   [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
+    [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
 
 - (void)loadGrowl
