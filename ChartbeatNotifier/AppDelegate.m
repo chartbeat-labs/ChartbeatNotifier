@@ -104,6 +104,18 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [self loadRequest:url];
 }
 
+/** Parses the given JSON, and sets the statusItem title to the current site total */
+- (void)setTitle:(NSString *)aJsonString
+{
+  NSDictionary *data = [parser objectWithString:aJsonString error:nil];
+  NSNumber *count = [data objectForKey:@"visits"];
+  NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+  [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
+  [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
+  NSString *title = [numberFormatter stringFromNumber:count];
+  [statusItem setTitle:title];
+}
+
 
 #pragma mark -
 #pragma mark Request Handling
@@ -167,9 +179,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   NSString *json_string = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
   [receivedData setLength:0];
 
-  NSDictionary *data = [parser objectWithString:json_string error:nil];
-  NSString *count = [data objectForKey:@"visits"];
-  [statusItem setTitle:count];
+  [self setTitle:json_string];
 }
 
 
