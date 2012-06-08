@@ -30,7 +30,7 @@ NSString *const kTitleFormat = @"Dashboard: %@";
                                                  decisionListener:(id < WebPolicyDecisionListener >)listener
 {
   NSString *host = [[request URL] host];
-  if ([host isEqualToString:@"chartbeat.com"]) {
+  if (true || [host isEqualToString:@"chartbeat.com"]) {
     [listener use];
   } else {
     [[NSWorkspace sharedWorkspace] openURL:[request URL]];
@@ -51,5 +51,40 @@ NSString *const kTitleFormat = @"Dashboard: %@";
   
   NSString *dashUrl = [NSMutableString stringWithFormat:kDashboardURLFormat, aDomain, aApiKey];
   [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dashUrl]]];
+}
+
+//this returns a nice name for the method in the JavaScript environment
++(NSString*)webScriptNameForSelector:(SEL)sel
+{
+  if(sel == @selector(logJavaScriptString:))
+    return @"notify";
+  return nil;
+}
+
+//this allows JavaScript to call the -logJavaScriptString: method
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)sel
+{
+  if(sel == @selector(logJavaScriptString:))
+    return NO;
+  return YES;
+}
+
+//called when the nib objects are available, so do initial setup
+- (void)awakeFromNib
+{
+  [webView setFrameLoadDelegate:self];
+}
+
+
+//this is a simple log command
+- (void)logJavaScriptString:(NSString*) logText
+{
+  NSLog(@"HI: %@",logText);
+}
+
+//this is called as soon as the script environment is ready in the webview
+- (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
+{
+  [windowScriptObject setValue:self forKey:@"ChartbeatNative"];
 }
 @end

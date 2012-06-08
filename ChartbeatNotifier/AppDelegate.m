@@ -39,7 +39,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
-
+#define UPDATE_COUNTER 1
 #ifdef UPDATE_COUNTER
   timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
                                            target:self selector:@selector(updateCounter:)
@@ -52,6 +52,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   // Try to load growl
   [self loadGrowl];
+  [self notify:@"HI" : @""];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
