@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <Growl/Growl.h>
 
-@interface Notifier : NSObject {
+@interface Notifier : NSObject <GrowlApplicationBridgeDelegate> {
   /** True when we were abale to load the framework */
   bool growlAvailable;
 }
 
-//@property (unsafe_unretained) IBOutlet WebView *webView;
-//-(void) loadDashboard:(NSString *)aDomain apikey:(NSString *)aApiKey;
+- (void)notify:(NSString *)title: (NSString *)description;
+- (void)notify:(NSString *)title;
 
++(Notifier*)getSingleton;
 @end

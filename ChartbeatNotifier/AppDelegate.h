@@ -5,11 +5,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <SBJson/SBJson.h>
-#import <Growl/Growl.h>
 
 #import "DashboardController.h"
+#import "Notifier.h"
+#import "DataChannel.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
   IBOutlet NSMenu *statusMenu;
 
   /** The status bar item */
@@ -26,9 +27,9 @@
   
   /** Dashboard window */
   DashboardController *dashboard;
-
-  /** True when we were abale to load the framework */
-  bool growlAvailable;
+  
+  /** Webview based datachannel */
+  DataChannel *dataChannel;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;

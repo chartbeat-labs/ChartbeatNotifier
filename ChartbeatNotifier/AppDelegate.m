@@ -7,6 +7,7 @@
 
 #import "Defines.h"
 
+
 /** If not defined, the status item counter will never be updated */
 //#define UPDATE_COUNTER
 
@@ -39,7 +40,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
   [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
   [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
-#define UPDATE_COUNTER 1
 #ifdef UPDATE_COUNTER
   timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
                                            target:self selector:@selector(updateCounter:)
@@ -49,10 +49,10 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   // Kick off an update
   [self getSiteStats];
 #endif
-
-  // Try to load growl
-  [self loadGrowl];
-  [self notify:@"HI" : @""];
+  
+  
+  dataChannel = [[DataChannel alloc] init];
+  [dataChannel load:[self domain] apikey:[self apiKey] statusItem:statusItem];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -72,48 +72,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [statusItem setTitle:@"(loading)"];
   [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
   [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
-}
-
-- (void)loadGrowl
-{
-    NSBundle *myBundle = [NSBundle bundleForClass:[AppDelegate class]];
-    NSString *growlPath = [[myBundle privateFrameworksPath]
-                           stringByAppendingPathComponent:@"Growl.framework"];
-    NSBundle *growlBundle = [NSBundle bundleWithPath:growlPath];
-    
-    if (growlBundle && [growlBundle load]) {
-        [GrowlApplicationBridge setGrowlDelegate:self];
-        growlAvailable = true;
-    } else {
-        NSLog(@"Could not load Growl.framework");
-        growlAvailable = false;
-    }
-
-}
-
-- (IBAction)notify:(NSString *)title: (NSString *)description
-{    
-    if (!growlAvailable) {
-        return;
-    }
-//	if([GAB respondsToSelector:@selector(notifyWithTitle:description:notificationName:iconData:priority:isSticky:clickContext:identifier:)]) {   
-//    }
-    Class growl = NSClassFromString(@"GrowlApplicationBridge");
-    [growl notifyWithTitle:title
-             description:description
-        notificationName:@"Event"
-                iconData:(NSData *)nil
-                priority:0
-                isSticky:YES
-            clickContext:nil
-              identifier:description];
-	
-}
-
-- (NSDictionary*) registrationDictionaryForGrowl {
-    NSString* path = [[NSBundle mainBundle] pathForResource: @"Growl Registration Ticket" ofType: @"growlRegDict"];
-    NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile: path];
-    return dictionary;
 }
 
 #pragma mark -

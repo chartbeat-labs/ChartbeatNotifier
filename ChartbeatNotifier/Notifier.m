@@ -8,11 +8,27 @@
 
 #import "Notifier.h"
 
-static Notifier *sharedSingleton;
 
 @implementation Notifier
 
-- (void)initialize
+static Notifier *_sharedNotifier = nil;
+
++(Notifier*)getSingleton
+{
+  if (!_sharedNotifier) {
+    _sharedNotifier = [[self alloc] init];
+  }
+  return _sharedNotifier;
+}
+
+- (id)init {
+  self = [super init];
+  [self loadGrowl];
+  return self;
+}
+
+
+- (void)loadGrowl
 {
   NSBundle *myBundle = [NSBundle bundleForClass:[Notifier class]];
   NSString *growlPath = [[myBundle privateFrameworksPath]
@@ -28,8 +44,12 @@ static Notifier *sharedSingleton;
   }
   
 }
+- (void)notify:(NSString *)title
+{
+  [self notify:title :@""];
+}
 
-- (IBAction)notify:(NSString *)title: (NSString *)description
+- (void)notify:(NSString *)title: (NSString *)description
 {    
   if (!growlAvailable) {
     return;
@@ -42,7 +62,7 @@ static Notifier *sharedSingleton;
         notificationName:@"Event"
                 iconData:(NSData *)nil
                 priority:0
-                isSticky:YES
+                isSticky:NO
             clickContext:nil
               identifier:description];
 }

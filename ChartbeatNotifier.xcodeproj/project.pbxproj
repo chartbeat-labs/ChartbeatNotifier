@@ -18,6 +18,8 @@
 		4A1BA62D1581233900B89C52 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA62C1581233900B89C52 /* Defines.m */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
+		E11217F615823BE40075631A /* Notifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E11217F5158238D30075631A /* Notifier.m */; };
+		E11217F915824B5B0075631A /* DataChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E11217F815824B5B0075631A /* DataChannel.m */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
 		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
@@ -107,6 +109,10 @@
 		4A1BA62B158122F600B89C52 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		4A1BA62C1581233900B89C52 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
+		E11217F4158238D30075631A /* Notifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notifier.h; sourceTree = "<group>"; };
+		E11217F5158238D30075631A /* Notifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Notifier.m; sourceTree = "<group>"; };
+		E11217F715824B5B0075631A /* DataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataChannel.h; sourceTree = "<group>"; };
+		E11217F815824B5B0075631A /* DataChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataChannel.m; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
 			isa = PBXGroup;
 			children = (
+				E11217F3158238C70075631A /* Notifier */,
 				4A1BA62B158122F600B89C52 /* Defines.h */,
 				4A1BA62C1581233900B89C52 /* Defines.m */,
 				4A1BA61D15810BF300B89C52 /* UI */,
@@ -182,6 +189,8 @@
 				4A07E827157D37DD003624C0 /* AppDelegate.m */,
 				4A07E829157D37DD003624C0 /* MainMenu.xib */,
 				4A07E81B157D37DD003624C0 /* Supporting Files */,
+				E11217F715824B5B0075631A /* DataChannel.h */,
+				E11217F815824B5B0075631A /* DataChannel.m */,
 			);
 			path = ChartbeatNotifier;
 			sourceTree = "<group>";
@@ -216,6 +225,15 @@
 				4A879E3A157E52F20018E10C /* sbjson-iosTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E11217F3158238C70075631A /* Notifier */ = {
+			isa = PBXGroup;
+			children = (
+				E11217F4158238D30075631A /* Notifier.h */,
+				E11217F5158238D30075631A /* Notifier.m */,
+			);
+			name = Notifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +345,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A07E821157D37DD003624C0 /* main.m in Sources */,
+				E11217F615823BE40075631A /* Notifier.m in Sources */,
 				4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */,
 				4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */,
 				4A1BA62D1581233900B89C52 /* Defines.m in Sources */,
+				E11217F915824B5B0075631A /* DataChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
