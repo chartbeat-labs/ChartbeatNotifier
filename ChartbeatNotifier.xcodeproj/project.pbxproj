@@ -20,6 +20,8 @@
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		E11217F615823BE40075631A /* Notifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E11217F5158238D30075631A /* Notifier.m */; };
 		E11217F915824B5B0075631A /* DataChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E11217F815824B5B0075631A /* DataChannel.m */; };
+		E1D5D00C158582EB0092F64F /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D5D00B158582EB0092F64F /* PopupView.xib */; };
+		E1D5D01115858CAF0092F64F /* MAAttachedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D5D00A158580460092F64F /* MAAttachedWindow.m */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
 		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
@@ -113,6 +115,9 @@
 		E11217F5158238D30075631A /* Notifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Notifier.m; sourceTree = "<group>"; };
 		E11217F715824B5B0075631A /* DataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataChannel.h; sourceTree = "<group>"; };
 		E11217F815824B5B0075631A /* DataChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataChannel.m; sourceTree = "<group>"; };
+		E1D5D009158580460092F64F /* MAAttachedWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAAttachedWindow.h; sourceTree = "<group>"; };
+		E1D5D00A158580460092F64F /* MAAttachedWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAAttachedWindow.m; sourceTree = "<group>"; };
+		E1D5D00B158582EB0092F64F /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
@@ -230,8 +235,11 @@
 		E11217F3158238C70075631A /* Notifier */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5D009158580460092F64F /* MAAttachedWindow.h */,
+				E1D5D00A158580460092F64F /* MAAttachedWindow.m */,
 				E11217F4158238D30075631A /* Notifier.h */,
 				E11217F5158238D30075631A /* Notifier.m */,
+				E1D5D00B158582EB0092F64F /* PopupView.xib */,
 			);
 			name = Notifier;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				E1F0E9421581045E005FF19A /* status.png in Resources */,
 				E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */,
 				E1FFBEDB1581322000CDCF0F /* activestatus.png in Resources */,
+				E1D5D00C158582EB0092F64F /* PopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D5D01115858CAF0092F64F /* MAAttachedWindow.m in Sources */,
 				4A07E821157D37DD003624C0 /* main.m in Sources */,
 				E11217F615823BE40075631A /* Notifier.m in Sources */,
 				4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */,

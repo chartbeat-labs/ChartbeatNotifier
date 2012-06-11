@@ -53,6 +53,9 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   
   dataChannel = [[DataChannel alloc] init];
   [dataChannel load:[self domain] apikey:[self apiKey] statusItem:statusItem];
+  Notifier *notifier = [Notifier getSingleton];
+  [notifier setStatusItem:statusItem];
+  [notifier notify:@"This is a Chartbeat Notification"];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -69,7 +72,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
   [statusItem setHighlightMode:YES];
   [statusItem setMenu:statusMenu];
-  [statusItem setTitle:@"(loading)"];
+  [statusItem setTitle:@""];
   [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
   [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
@@ -213,3 +216,4 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 }
 
 @end
+

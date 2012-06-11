@@ -14,7 +14,7 @@
 NSString *const kDatachannelURLFormat = @"http://tomdev.local/dashboard/?url=%@&k=%@";
 
 @implementation DataChannel
-//@synthesize webView;
+
 - (id)init
 {
   self = [super init];
@@ -31,38 +31,39 @@ NSString *const kDatachannelURLFormat = @"http://tomdev.local/dashboard/?url=%@&
 
 }
 
-//this returns a nice name for the method in the JavaScript environment
 +(NSString*)webScriptNameForSelector:(SEL)sel
 {
-  if(sel == @selector(logJavaScriptString:))
+  if(sel == @selector(notifyJavaScriptString:))
     return @"notify";
+  if(sel == @selector(setTextJavaScriptString:))
+    return @"setText";
   return nil;
 }
 
-//this allows JavaScript to call the -logJavaScriptString: method
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)sel
 {
-  if(sel == @selector(logJavaScriptString:))
+  
+  if(sel == @selector(notifyJavaScriptString:))
+    return NO;
+  if(sel == @selector(setTextJavaScriptString:))
     return NO;
   return YES;
 }
 
-//called when the nib objects are available, so do initial setup
-- (void)awakeFromNib
+//- (void)notifyJavaScriptString:(NSString*) aDescription title:(NSString*)aTitle
+- (void)notifyJavaScriptString:(NSString*) aDescription
 {
-  [webView setFrameLoadDelegate:self];
+  NSLog(@"notifyJavaScriptString: %@",aDescription);
+  [[Notifier getSingleton] notify:@"Notable page":[NSString stringWithFormat:@"%@", aDescription]];
 }
 
-
-//this is a simple log command
-- (void)logJavaScriptString:(NSString*) logText
+- (void)setTextJavaScriptString:(NSString*) text
 {
-  NSLog(@"HI: %@",logText);
-  [[Notifier getSingleton] notify:[NSString stringWithFormat:@"%@", logText]];
-  [statusItem setTitle:[NSString stringWithFormat:@"%@", logText]];
+  NSLog(@"setTextJavaScriptString: %@",text);
+  [statusItem setTitle:[NSString stringWithFormat:@"%@", text]];
+
 }
 
-//this is called as soon as the script environment is ready in the webview
 - (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
   [windowScriptObject setValue:self forKey:@"chartbeatNative"];
