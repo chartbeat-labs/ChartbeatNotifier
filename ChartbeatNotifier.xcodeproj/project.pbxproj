@@ -16,6 +16,7 @@
 		4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA61F15810C1E00B89C52 /* DashboardController.m */; };
 		4A1BA62215810C1E00B89C52 /* DashboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BA62015810C1E00B89C52 /* DashboardController.xib */; };
 		4A1BA62D1581233900B89C52 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA62C1581233900B89C52 /* Defines.m */; };
+		4A322E1E158642C7005B001F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A322E1D158642C7005B001F /* CoreFoundation.framework */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
@@ -106,6 +107,7 @@
 		4A1BA62015810C1E00B89C52 /* DashboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardController.xib; sourceTree = "<group>"; };
 		4A1BA62B158122F600B89C52 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		4A1BA62C1581233900B89C52 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
+		4A322E1D158642C7005B001F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A322E1E158642C7005B001F /* CoreFoundation.framework in Frameworks */,
 				4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */,
 				4A879E40157E56070018E10C /* SBJson.framework in Frameworks */,
 				4A07E815157D37DD003624C0 /* Cocoa.framework in Frameworks */,
@@ -132,6 +135,7 @@
 		4A07E805157D37DD003624C0 = {
 			isa = PBXGroup;
 			children = (
+				4A322E1D158642C7005B001F /* CoreFoundation.framework */,
 				E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */,
 				E1F0E9411581045E005FF19A /* status.png */,
 				E1FFBEDA1581322000CDCF0F /* activestatus.png */,

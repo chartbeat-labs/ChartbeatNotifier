@@ -5,6 +5,7 @@
 
 #import "AppDelegate.h"
 
+#import <CoreFoundation/CoreFoundation.h>
 
 #import "DashboardController.h"
 #import "Defines.h"
@@ -262,9 +263,20 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 {
   NSLog(@"openDashboard()");
 
-  // TODO: ask user for this
-  NSString *domain = @"foxnews.com";
-  [self doOpenDashboard:domain];
+  // TODO: super ugly, build own...
+  // Ask user for domain the to open
+  SInt32 error = 0;
+  NSDictionary *dict = [[NSMutableDictionary alloc] init];
+  [dict setValue:@"Dashboard" forKey:(NSString*) kCFUserNotificationAlertHeaderKey];
+  [dict setValue:@"Domain:" forKey:(NSString*) kCFUserNotificationTextFieldTitlesKey];
+  CFDictionaryRef cfdict = (__bridge CFDictionaryRef) dict;
+  CFUserNotificationRef notifier = CFUserNotificationCreate (kCFAllocatorDefault, 0, kCFUserNotificationPlainAlertLevel, &error, cfdict);
+  CFOptionFlags flags;
+  CFUserNotificationReceiveResponse (notifier, 0, &flags);
+  
+  CFStringRef domain = CFUserNotificationGetResponseValue(notifier, kCFUserNotificationTextFieldValuesKey , 0);
+  
+  [self doOpenDashboard:(__bridge NSString*) domain];
 }
 
 - (IBAction)openDefaultDashboard:(id)sender
