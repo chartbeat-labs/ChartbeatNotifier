@@ -7,7 +7,7 @@
 #import <SBJson/SBJson.h>
 #import <Growl/Growl.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSWindowDelegate> {
   IBOutlet NSMenu *statusMenu;
 
   /** The status bar item */
@@ -29,9 +29,6 @@
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
-
-@property NSString *domain;
-@property NSString *apiKey;
 
 - (IBAction)openDashboard:(id)sender;
 - (IBAction)openDefaultDashboard:(id)sender;

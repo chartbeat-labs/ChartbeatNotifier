@@ -9,6 +9,7 @@
 
 #import "DashboardController.h"
 #import "Defines.h"
+#import "Account.h"
 
 /** If not defined, the status item counter will never be updated */
 #define UPDATE_COUNTER
@@ -38,9 +39,10 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   receivedData = [NSMutableData data];
   dashboards = [[NSMutableDictionary alloc] init];
   parser = [[SBJsonParser alloc] init];
-
-  [self setApiKey:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey]];
-  [self setDomain:[[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain]];
+    
+    Account *sharedAccount = [Account sharedInstance];
+    [self.fieldApiKey setStringValue:sharedAccount.apiKey];
+    [self.fieldDomain setStringValue:sharedAccount.domain];
 
 #ifdef UPDATE_COUNTER
   timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
@@ -59,10 +61,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 - (void)applicationWillTerminate:(NSApplication *)application
 {
   NSLog(@"applicationWillTerminate()");
-  
-  // TODO: generalize
-  [[NSUserDefaults standardUserDefaults] setValue:[self apiKey] forKey:kPrefApiKey];
-  [[NSUserDefaults standardUserDefaults] setValue:[self domain] forKey:kPrefDomain];
 }
 
 - (void)awakeFromNib
@@ -97,7 +95,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 {
   NSLog(@"getSiteStats()");
   
-  NSString *url = [NSMutableString stringWithFormat:kSiteStatsFormat, [self apiKey], [self domain]];
+    Account *sharedAccount = [Account sharedInstance];
+  NSString *url = [NSMutableString stringWithFormat:kSiteStatsFormat, sharedAccount.apiKey, sharedAccount.domain];
   
   // TODO: don't kick off if previous load is still running
   // TODO: display errors to user
@@ -193,31 +192,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
     dashboard = [[DashboardController alloc] init];
     [dashboards setValue:dashboard forKey:aDomain];
   }
-  [dashboard loadDashboard:aDomain apikey:[self apiKey]];
-}
-
-#pragma mark -
-#pragma mark Preference properties
-// TODO: move all this to a separate class
-
-- (NSString*)apiKey
-{
-  return [self.fieldApiKey stringValue];
-}
-
-- (void)setApiKey:(NSString *)aApiKey
-{
-  [self.fieldApiKey setStringValue:aApiKey];
-}
-
-- (NSString*)domain
-{
-  return [self.fieldDomain stringValue];
-}
-
-- (void)setDomain:(NSString *)aDomain
-{
-  [self.fieldDomain setStringValue:aDomain];
+  [dashboard loadDashboard:aDomain apikey:[[Account sharedInstance] apiKey]];
 }
 
 #pragma mark -
@@ -246,7 +221,18 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 - (IBAction)openDefaultDashboard:(id)sender
 {
   NSLog(@"openDefaultDashboard()");
-  [self doOpenDashboard:[self domain]];
+  [self doOpenDashboard:[[Account sharedInstance] domain]];
+}
+
+#pragma mark -
+#pragma mark Delegate Methods
+
+// only used for Preferences Window
+// TODO: abstract into own controller
+- (void)windowWillClose:(NSNotification *)notification {
+    NSLog(@"windowWillClose()");
+    [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
+    [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
 }
 
 @end
