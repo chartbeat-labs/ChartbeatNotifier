@@ -52,8 +52,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [self getSiteStats];
 #endif
 
-  // Try to load growl
-  [self loadGrowl];
+  // Set up Growl
+  [GrowlApplicationBridge setGrowlDelegate:self];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -77,42 +77,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Internal Methods
-
-- (void)loadGrowl
-{
-    NSBundle *myBundle = [NSBundle bundleForClass:[AppDelegate class]];
-    NSString *growlPath = [[myBundle privateFrameworksPath]
-                           stringByAppendingPathComponent:@"Growl.framework"];
-    NSBundle *growlBundle = [NSBundle bundleWithPath:growlPath];
-    
-    if (growlBundle && [growlBundle load]) {
-        [GrowlApplicationBridge setGrowlDelegate:self];
-        growlAvailable = true;
-    } else {
-        NSLog(@"Could not load Growl.framework");
-        growlAvailable = false;
-    }
-
-}
-
-- (IBAction)notify:(NSString *)title: (NSString *)description
-{    
-    if (!growlAvailable) {
-        return;
-    }
-//	if([GAB respondsToSelector:@selector(notifyWithTitle:description:notificationName:iconData:priority:isSticky:clickContext:identifier:)]) {   
-//    }
-    Class growl = NSClassFromString(@"GrowlApplicationBridge");
-    [growl notifyWithTitle:title
-             description:description
-        notificationName:@"Event"
-                iconData:(NSData *)nil
-                priority:0
-                isSticky:YES
-            clickContext:nil
-              identifier:description];
-	
-}
 
 - (NSDictionary*) registrationDictionaryForGrowl
 {
