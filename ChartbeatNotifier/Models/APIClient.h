@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SBJson/SBJson.h>
 
 @interface APIClient : NSObject
-
-/** JSON parser used to part API results */
-@property (nonatomic) SBJsonParser *parser;
 
 /** Used to receive backend data */
 @property (nonatomic) NSMutableData *receivedData;
@@ -30,5 +26,14 @@
 
 /** Method to override when request is done to update values */
 - (void)setAttributes:(NSDictionary *)json;
+
+/** Class method to make a request with a block */
++ (void)asyncRequest:(NSURLRequest *)request
+             success:(void(^)(NSDictionary *json, NSURLResponse *response))successBlock_
+             failure:(void(^)(NSData *data, NSError *error))failureBlock_;
+
++ (NSURLRequest *)urlRequestWithUrl:(NSString *)urlString;
+
++ (NSDictionary *)parseData:(NSData *)data;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "APIClient.h"
+#import <SBJson/SBJson.h>
 
 /** How often to update the site stats (seconds) */
 NSTimeInterval const kRequestInterval = 3;
@@ -16,10 +17,47 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 @implementation APIClient
 
-@synthesize parser = _parser;
 @synthesize receivedData = _receivedData;
 @synthesize timer = _timer;
 @synthesize requestInterval = _requestInterval;
+
+/** from https://github.com/rickerbh/NSURLConnection-Blocks */
++ (void)asyncRequest:(NSURLRequest *)request
+             success:(void(^)(NSDictionary *json, NSURLResponse *response))successBlock_
+             failure:(void(^)(NSData *data, NSError *error))failureBlock_ {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		NSURLResponse *response = nil;
+		NSError *error = nil;
+		NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        
+		if (error) {
+			failureBlock_(data,error);
+		} else {
+            NSDictionary *json = [self parseData:data];
+			successBlock_(json,response);
+		}
+        
+	});
+}
+
++ (NSURLRequest *)urlRequestWithUrl:(NSString *)urlString {
+    NSURLRequest *theRequest;
+    theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                  cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                              timeoutInterval:kRequestTimeoutInterval];
+    return theRequest;
+}
+
++ (NSDictionary *)parseData:(NSData *)data {
+    NSString *json_string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    NSDictionary *parsedData = [parser objectWithString:json_string error:nil];
+    return parsedData;
+}
+
+
 
 - (id)init {
     self = [super init];
@@ -28,7 +66,6 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
     }
     
     _receivedData = [NSMutableData data];
-    _parser = [[SBJsonParser alloc] init];
     _requestInterval = kRequestInterval;
     
     return self;
@@ -53,20 +90,13 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Request Handling
-// TODO: move all this to a separate class
 
 - (void)loadRequest:(NSString *)aURL
 {
     //    NSLog(@"loadRequest: %@", aURL);
     
-    NSURLRequest *theRequest;
-    theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]
-                                  cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                              timeoutInterval:kRequestTimeoutInterval];
-    
-    // TODO: who owns this?
     NSURLConnection *theConnection;
-    theConnection = [[NSURLConnection alloc] initWithRequest:theRequest
+    theConnection = [[NSURLConnection alloc] initWithRequest:[APIClient urlRequestWithUrl:aURL]
                                                     delegate:self];
 }
 
@@ -111,11 +141,8 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
     //    NSLog(@"connectionDidFinishLoading()");
     
     connection = nil;
-    
-    NSString *json_string = [[NSString alloc] initWithData:_receivedData encoding:NSUTF8StringEncoding];
+    NSDictionary *data = [APIClient parseData:_receivedData];
     [_receivedData setLength:0];
-    
-    NSDictionary *data = [_parser objectWithString:json_string error:nil];
     [self setAttributes:data];
 }
 
