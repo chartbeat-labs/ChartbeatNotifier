@@ -26,9 +26,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  NSLog(@"applicationDidFinishLaunching()");
+    NSLog(@"applicationDidFinishLaunching()");
 
-  dashboards = [[NSMutableDictionary alloc] init];
+    dashboards = [[NSMutableDictionary alloc] init];
     
     Account *sharedAccount = [Account sharedInstance];
     [self.fieldApiKey setStringValue:sharedAccount.apiKey];
@@ -38,8 +38,8 @@
     [sharedQuickstats startUpdating];
     [sharedQuickstats addObserver:self forKeyPath:@"formattedVisits" options:0 context:nil];
 
-  // Set up Growl
-  [GrowlApplicationBridge setGrowlDelegate:self];
+    // Set up Growl
+    [GrowlApplicationBridge setGrowlDelegate:self];
     
 //    [GrowlApplicationBridge notifyWithTitle:title
 //                                description:description
@@ -54,20 +54,20 @@
 
 - (void)applicationWillTerminate:(NSApplication *)application
 {
-  NSLog(@"applicationWillTerminate()");
+    NSLog(@"applicationWillTerminate()");
 }
 
 - (void)awakeFromNib
 {
-  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-  [statusItem setHighlightMode:YES];
-  [statusItem setMenu:statusMenu];
-  [statusItem setTitle:@"(loading)"];
-  [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
-  [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem setHighlightMode:YES];
+    [statusItem setMenu:statusMenu];
+    [statusItem setTitle:@"(loading)"];
+    [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
+    [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change    context:(void *)context {
     if ([keyPath isEqualToString:@"formattedVisits"]) {
         [statusItem setTitle:[(Quickstats*)object formattedVisits]];
     }
@@ -100,28 +100,28 @@
 
 - (IBAction)openDashboard:(id)sender
 {
-  NSLog(@"openDashboard()");
-
-  // TODO: super ugly, build own...
-  // Ask user for domain the to open
-  SInt32 error = 0;
-  NSDictionary *dict = [[NSMutableDictionary alloc] init];
-  [dict setValue:@"Dashboard" forKey:(NSString*) kCFUserNotificationAlertHeaderKey];
-  [dict setValue:@"Domain:" forKey:(NSString*) kCFUserNotificationTextFieldTitlesKey];
-  CFDictionaryRef cfdict = (__bridge CFDictionaryRef) dict;
-  CFUserNotificationRef notifier = CFUserNotificationCreate (kCFAllocatorDefault, 0, kCFUserNotificationPlainAlertLevel, &error, cfdict);
-  CFOptionFlags flags;
-  CFUserNotificationReceiveResponse (notifier, 0, &flags);
-  
-  CFStringRef domain = CFUserNotificationGetResponseValue(notifier, kCFUserNotificationTextFieldValuesKey , 0);
-  
-  [self doOpenDashboard:(__bridge NSString*) domain];
+    NSLog(@"openDashboard()");
+    
+    // TODO: super ugly, build own...
+    // Ask user for domain the to open
+    SInt32 error = 0;
+    NSDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:@"Dashboard" forKey:(NSString*) kCFUserNotificationAlertHeaderKey];
+    [dict setValue:@"Domain:" forKey:(NSString*) kCFUserNotificationTextFieldTitlesKey];
+    CFDictionaryRef cfdict = (__bridge CFDictionaryRef) dict;
+    CFUserNotificationRef notifier = CFUserNotificationCreate (kCFAllocatorDefault, 0, kCFUserNotificationPlainAlertLevel, &error, cfdict);
+    CFOptionFlags flags;
+    CFUserNotificationReceiveResponse (notifier, 0, &flags);
+    
+    CFStringRef domain = CFUserNotificationGetResponseValue(notifier, kCFUserNotificationTextFieldValuesKey , 0);
+    
+    [self doOpenDashboard:(__bridge NSString*) domain];
 }
 
 - (IBAction)openDefaultDashboard:(id)sender
 {
-  NSLog(@"openDefaultDashboard()");
-  [self doOpenDashboard:[[Account sharedInstance] domain]];
+    NSLog(@"openDefaultDashboard()");
+    [self doOpenDashboard:[[Account sharedInstance] domain]];
 }
 
 #pragma mark -
