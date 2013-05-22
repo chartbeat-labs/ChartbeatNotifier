@@ -11,4 +11,12 @@
 
 @interface Event : APIClient
 
+@property NSString *title;
+@property NSString *value;
+
+
+- (id)initWithAttributes:(NSDictionary *)attributes;
+
++ (void)getNewEvents:(int)minutesAgo withBlock:(void (^)(NSArray *events, NSError *error))block;
+
 @end

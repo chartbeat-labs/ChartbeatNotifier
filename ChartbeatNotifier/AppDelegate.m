@@ -10,6 +10,12 @@
 #import "DashboardController.h"
 #import "Account.h"
 #import "Quickstats.h"
+#import "Event.h"
+
+
+/** How often to poll for event updates (seconds) */
+NSTimeInterval const kEventInterval = (60 * 5);
+
 
 @implementation AppDelegate
 
@@ -40,14 +46,11 @@
     // Set up Growl
     [GrowlApplicationBridge setGrowlDelegate:self];
     
-//    [GrowlApplicationBridge notifyWithTitle:title
-//                                description:description
-//                           notificationName:kNotificationName
-//                                   iconData:(NSData *)nil
-//                                   priority:0
-//                                   isSticky:YES
-//                               clickContext:nil
-//                                 identifier:description];
+    eventUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:kEventInterval
+                                              target:self selector:@selector(checkForNewEvents:)
+                                            userInfo:nil
+                                             repeats:YES];
+    [self checkForNewEvents:nil];
 
 }
 
@@ -132,6 +135,25 @@
     NSLog(@"windowWillClose()");
     [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
     [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
+}
+
+
+- (void)checkForNewEvents:(NSTimer *)timer {
+    [Event getNewEvents:20 withBlock:^(NSArray *events, NSError *error) {
+        NSLog(@"new events? %@", [[events objectAtIndex:0] title]);
+        
+        Event *event = [events objectAtIndex:0];
+        NSString *title = event.title;
+        NSString *description = event.value;
+        [GrowlApplicationBridge notifyWithTitle:title
+                                    description:description
+                               notificationName:@"Event"
+                                       iconData:(NSData *)nil
+                                       priority:0
+                                       isSticky:YES
+                                   clickContext:nil
+                                     identifier:description];
+    }];
 }
 
 @end

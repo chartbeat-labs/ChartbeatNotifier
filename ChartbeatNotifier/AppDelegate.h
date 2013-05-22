@@ -15,6 +15,8 @@
   /** Dashboard windows */
   // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...
   NSDictionary *dashboards;
+    
+    NSTimer *eventUpdateTimer;
 }
 
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;

@@ -234,10 +234,10 @@
 				E1D4FD3F174D284000221BB3 /* APIClient.m */,
 				E1AD37F3174C00EF00507BB8 /* Quickstats.h */,
 				E1AD37F4174C00EF00507BB8 /* Quickstats.m */,
-				E174A22B174BCDB900ED4332 /* Account.h */,
-				E174A22C174BCDB900ED4332 /* Account.m */,
 				E1D4FD38174D27FB00221BB3 /* Event.h */,
 				E1D4FD39174D27FB00221BB3 /* Event.m */,
+				E174A22B174BCDB900ED4332 /* Account.h */,
+				E174A22C174BCDB900ED4332 /* Account.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
