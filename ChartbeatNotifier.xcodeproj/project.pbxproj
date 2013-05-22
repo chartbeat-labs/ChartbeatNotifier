@@ -21,7 +21,7 @@
 		E174A22D174BCDB900ED4332 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E174A22C174BCDB900ED4332 /* Account.m */; };
 		E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD37F4174C00EF00507BB8 /* Quickstats.m */; };
 		E1CA0709174C098A00D3398F /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
-		E1D4FD3A174D27FB00221BB3 /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD39174D27FB00221BB3 /* Events.m */; };
+		E1D4FD3A174D27FB00221BB3 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD39174D27FB00221BB3 /* Event.m */; };
 		E1D4FD40174D284000221BB3 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD3F174D284000221BB3 /* APIClient.m */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
@@ -114,8 +114,8 @@
 		E174A22C174BCDB900ED4332 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Models/Account.m; sourceTree = "<group>"; };
 		E1AD37F3174C00EF00507BB8 /* Quickstats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quickstats.h; path = Models/Quickstats.h; sourceTree = "<group>"; };
 		E1AD37F4174C00EF00507BB8 /* Quickstats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quickstats.m; path = Models/Quickstats.m; sourceTree = "<group>"; };
-		E1D4FD38174D27FB00221BB3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = Models/Events.h; sourceTree = "<group>"; };
-		E1D4FD39174D27FB00221BB3 /* Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Events.m; path = Models/Events.m; sourceTree = "<group>"; };
+		E1D4FD38174D27FB00221BB3 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Models/Event.h; sourceTree = "<group>"; };
+		E1D4FD39174D27FB00221BB3 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Models/Event.m; sourceTree = "<group>"; };
 		E1D4FD3E174D284000221BB3 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = Models/APIClient.h; sourceTree = "<group>"; };
 		E1D4FD3F174D284000221BB3 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = Models/APIClient.m; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
@@ -236,8 +236,8 @@
 				E1AD37F4174C00EF00507BB8 /* Quickstats.m */,
 				E174A22B174BCDB900ED4332 /* Account.h */,
 				E174A22C174BCDB900ED4332 /* Account.m */,
-				E1D4FD38174D27FB00221BB3 /* Events.h */,
-				E1D4FD39174D27FB00221BB3 /* Events.m */,
+				E1D4FD38174D27FB00221BB3 /* Event.h */,
+				E1D4FD39174D27FB00221BB3 /* Event.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 				4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */,
 				E174A22D174BCDB900ED4332 /* Account.m in Sources */,
 				E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */,
-				E1D4FD3A174D27FB00221BB3 /* Events.m in Sources */,
+				E1D4FD3A174D27FB00221BB3 /* Event.m in Sources */,
 				E1D4FD40174D284000221BB3 /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

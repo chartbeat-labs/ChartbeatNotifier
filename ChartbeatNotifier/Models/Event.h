@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "APIClient.h"
 
-@interface Events : NSObject
+@interface Event : APIClient
 
 @end
