@@ -13,6 +13,8 @@
 #import "Event.h"
 
 
+
+int kEventMinutesAgo = 5;
 /** How often to poll for event updates (seconds) */
 NSTimeInterval const kEventInterval = (60 * 5);
 
@@ -134,16 +136,16 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 
 
 - (void)checkForNewEvents:(NSTimer *)timer {
-    [Event getNewEvents:40 withBlock:^(NSArray *events, NSError *error) {
-        NSString *iconPath = [[NSBundle mainBundle] pathForImageResource:@"export.icns"];
-        NSData *iconData = [NSData dataWithContentsOfFile:iconPath];
+    static NSString *descriptionFormat = @"Just linked from %@";
+    [Event getNewEvents:kEventMinutesAgo withBlock:^(NSArray *events, NSError *error) {
         for (Event *event in events) {
             NSString *title = event.title;
-            NSString *description = event.value;
+            NSString *description = [NSString stringWithFormat:descriptionFormat,  event.value];
+            
             [GrowlApplicationBridge notifyWithTitle:title
                                         description:description
                                    notificationName:kGrowlEventNotificationName
-                                           iconData:iconData
+                                           iconData:nil
                                            priority:0
                                            isSticky:NO
                                        clickContext:nil
