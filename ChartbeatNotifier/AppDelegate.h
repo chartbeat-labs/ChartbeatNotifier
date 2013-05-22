@@ -4,7 +4,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <SBJson/SBJson.h>
 #import <Growl/Growl.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSWindowDelegate> {
@@ -12,15 +11,6 @@
 
   /** The status bar item */
   NSStatusItem *statusItem;
-
-  /** JSON parser used to part API results */
-  SBJsonParser *parser;
-
-  /** Timer used to periodically update the counter */
-  NSTimer *timer;
-
-  /** Used to receive backend data */
-  NSMutableData *receivedData;
   
   /** Dashboard windows */
   // TODO: Is ownership correct? I.e. when the window is closed, this should be nulled out...

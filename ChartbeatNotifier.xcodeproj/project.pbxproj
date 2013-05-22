@@ -20,6 +20,7 @@
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		E174A22D174BCDB900ED4332 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E174A22C174BCDB900ED4332 /* Account.m */; };
+		E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD37F4174C00EF00507BB8 /* Quickstats.m */; };
 		E1CA0709174C098A00D3398F /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
@@ -112,6 +113,8 @@
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		E174A22B174BCDB900ED4332 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Models/Account.h; sourceTree = "<group>"; };
 		E174A22C174BCDB900ED4332 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Models/Account.m; sourceTree = "<group>"; };
+		E1AD37F3174C00EF00507BB8 /* Quickstats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quickstats.h; path = Models/Quickstats.h; sourceTree = "<group>"; };
+		E1AD37F4174C00EF00507BB8 /* Quickstats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quickstats.m; path = Models/Quickstats.m; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 		E174A22A174BCDA400ED4332 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1AD37F3174C00EF00507BB8 /* Quickstats.h */,
+				E1AD37F4174C00EF00507BB8 /* Quickstats.m */,
 				E174A22B174BCDB900ED4332 /* Account.h */,
 				E174A22C174BCDB900ED4332 /* Account.m */,
 			);
@@ -357,6 +362,7 @@
 				4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */,
 				4A1BA62D1581233900B89C52 /* Defines.m in Sources */,
 				E174A22D174BCDB900ED4332 /* Account.m in Sources */,
+				E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

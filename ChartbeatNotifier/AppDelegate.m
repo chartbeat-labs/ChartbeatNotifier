@@ -10,17 +10,9 @@
 #import "DashboardController.h"
 #import "Defines.h"
 #import "Account.h"
-
-/** If not defined, the status item counter will never be updated */
-#define UPDATE_COUNTER
+#import "Quickstats.h"
 
 @implementation AppDelegate
-
-/** How often to update the site stats (seconds) */
-NSTimeInterval const kRequestInterval = 3;
-
-/** Timeout for site stats request (seconds) */
-NSTimeInterval const kRequestTimeoutInterval = 2;
 
 #pragma mark -
 #pragma mark Properties
@@ -36,26 +28,28 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 {
   NSLog(@"applicationDidFinishLaunching()");
 
-  receivedData = [NSMutableData data];
   dashboards = [[NSMutableDictionary alloc] init];
-  parser = [[SBJsonParser alloc] init];
     
     Account *sharedAccount = [Account sharedInstance];
     [self.fieldApiKey setStringValue:sharedAccount.apiKey];
     [self.fieldDomain setStringValue:sharedAccount.domain];
 
-#ifdef UPDATE_COUNTER
-  timer = [NSTimer scheduledTimerWithTimeInterval:kRequestInterval
-                                           target:self selector:@selector(updateCounter:)
-                                         userInfo:nil
-                                          repeats:YES];
-  
-  // Kick off an update
-  [self getSiteStats];
-#endif
+    Quickstats *sharedQuickstats = [Quickstats sharedInstance];
+    [sharedQuickstats startUpdating];
+    [sharedQuickstats addObserver:self forKeyPath:@"formattedVisits" options:0 context:nil];
 
   // Set up Growl
   [GrowlApplicationBridge setGrowlDelegate:self];
+    
+//    [GrowlApplicationBridge notifyWithTitle:title
+//                                description:description
+//                           notificationName:kNotificationName
+//                                   iconData:(NSData *)nil
+//                                   priority:0
+//                                   isSticky:YES
+//                               clickContext:nil
+//                                 identifier:description];
+
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -73,6 +67,12 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
   [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"formattedVisits"]) {
+        [statusItem setTitle:[(Quickstats*)object formattedVisits]];
+    }
+}
+
 #pragma mark -
 #pragma mark Internal Methods
 
@@ -83,116 +83,16 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
     return dictionary;
 }
 
-/** called by the timer when the stats counter needs to get updated */
-- (void)updateCounter:(NSTimer *)aTimer
-{
-  NSLog(@"updateCounter()");
-  [self getSiteStats];
-}
-
-/** Initiate getting fresh site stats from the backend */
-- (void)getSiteStats
-{
-  NSLog(@"getSiteStats()");
-  
-    Account *sharedAccount = [Account sharedInstance];
-  NSString *url = [NSMutableString stringWithFormat:kSiteStatsFormat, sharedAccount.apiKey, sharedAccount.domain];
-  
-  // TODO: don't kick off if previous load is still running
-  // TODO: display errors to user
-  [self loadRequest:url];
-}
-
-/** Parses the given JSON, and sets the statusItem title to the current site total */
-- (void)setTitle:(NSString *)aJsonString
-{
-  NSDictionary *data = [parser objectWithString:aJsonString error:nil];
-  NSNumber *count = [data objectForKey:@"visits"];
-  NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
-  [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
-  [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
-  NSString *title = [numberFormatter stringFromNumber:count];
-  [statusItem setTitle:title];
-}
-
-
-#pragma mark -
-#pragma mark Request Handling
-// TODO: move all this to a separate class
-
-- (void)loadRequest:(NSString *)aURL
-{
-  NSLog(@"loadRequest: %@", aURL);
-
-  NSURLRequest *theRequest;
-  theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]
-                                cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                            timeoutInterval:kRequestTimeoutInterval];
-
-  // TODO: who owns this?
-  NSURLConnection *theConnection;
-  theConnection = [[NSURLConnection alloc] initWithRequest:theRequest 
-                                                  delegate:self];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
-{
-  NSLog(@"didReceiveResponse()");
-  
-  [receivedData setLength:0];
-
-  if (![response isKindOfClass: [NSHTTPURLResponse class]]) {
-    return;
-  }
-  
-  int statusCode = [(NSHTTPURLResponse*) response statusCode];
-  if (statusCode != 200) {
-    NSLog(@"Got non-200 response code: %d (%@)",
-          statusCode,
-          [response URL]);
-    return;
-  }
-  
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-  NSLog(@"didReceiveData()");
-
-  [receivedData appendData:data];
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error 
-{
-  NSLog(@"Request error: %@ (%@)",
-        [error localizedDescription],
-        [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-  
-  connection = nil;
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-  NSLog(@"connectionDidFinishLoading()");
-  
-  connection = nil;
-
-  NSString *json_string = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-  [receivedData setLength:0];
-
-  [self setTitle:json_string];
-}
-
 - (void)doOpenDashboard:(NSString *)aDomain
 {
-  NSLog(@"doOpenDashboard(%@)", aDomain);
-
-  DashboardController *dashboard = [dashboards objectForKey:aDomain];
-  if (!dashboard) {
-    dashboard = [[DashboardController alloc] init];
-    [dashboards setValue:dashboard forKey:aDomain];
-  }
-  [dashboard loadDashboard:aDomain apikey:[[Account sharedInstance] apiKey]];
+    NSLog(@"doOpenDashboard(%@)", aDomain);
+    
+    DashboardController *dashboard = [dashboards objectForKey:aDomain];
+    if (!dashboard) {
+        dashboard = [[DashboardController alloc] init];
+        [dashboards setValue:dashboard forKey:aDomain];
+    }
+    [dashboard loadDashboard:aDomain apikey:[[Account sharedInstance] apiKey]];
 }
 
 #pragma mark -
