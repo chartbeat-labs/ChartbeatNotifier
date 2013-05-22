@@ -62,14 +62,14 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 /** called by the timer when the stats counter needs to get updated */
 - (void)updateCounter:(NSTimer *)aTimer
 {
-    NSLog(@"updateCounter()");
+//    NSLog(@"updateCounter()");
     [self getSiteStats];
 }
 
 /** Initiate getting fresh site stats from the backend */
 - (void)getSiteStats
 {
-    NSLog(@"getSiteStats()");
+//    NSLog(@"getSiteStats()");
     
     Account *sharedAccount = [Account sharedInstance];
     NSString *url = [NSMutableString stringWithFormat:kSiteStatsFormat, sharedAccount.apiKey, sharedAccount.domain];
@@ -85,7 +85,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 - (void)loadRequest:(NSString *)aURL
 {
-    NSLog(@"loadRequest: %@", aURL);
+//    NSLog(@"loadRequest: %@", aURL);
     
     NSURLRequest *theRequest;
     theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:aURL]
@@ -100,7 +100,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
-    NSLog(@"didReceiveResponse()");
+//    NSLog(@"didReceiveResponse()");
     
     [_receivedData setLength:0];
     
@@ -120,7 +120,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"didReceiveData()");
+//    NSLog(@"didReceiveData()");
     
     [_receivedData appendData:data];
 }
@@ -136,7 +136,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading()");
+//    NSLog(@"connectionDidFinishLoading()");
     
     connection = nil;
     
