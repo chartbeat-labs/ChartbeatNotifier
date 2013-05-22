@@ -7,7 +7,12 @@
 //
 
 #import "Account.h"
-#import "Defines.h"
+
+/** Preference key for API Key */
+NSString *const kPrefApiKey = @"apiKey";
+
+/** Preference key for Domain */
+NSString *const kPrefDomain = @"domain";
 
 @implementation Account
 

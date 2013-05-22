@@ -7,25 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SBJson/SBJson.h>
+#import "APIClient.h"
 
-@interface Quickstats : NSObject
-
-/** JSON parser used to part API results */
-@property (nonatomic) SBJsonParser *parser;
-
-/** Timer used to periodically update the counter */
-@property (nonatomic) NSTimer *timer;
-
-/** Used to receive backend data */
-@property (nonatomic) NSMutableData *receivedData;
+@interface Quickstats : APIClient
 
 @property (nonatomic) NSNumber *visits;
 @property (nonatomic) NSString *formattedVisits;
 
 + (Quickstats *)sharedInstance;
-
-- (void)startUpdating;
-- (void)stopUpdating;
 
 @end

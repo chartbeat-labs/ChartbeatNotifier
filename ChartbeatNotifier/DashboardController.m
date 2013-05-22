@@ -4,8 +4,6 @@
 
 #import "DashboardController.h"
 
-#import "Defines.h"
-
 /** URL for the dashboard for a given domain */
 NSString *const kDashboardURLFormat = @"http://chartbeat.com/dashboard/?url=%@&k=%@";
 

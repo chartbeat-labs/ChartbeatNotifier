@@ -15,13 +15,14 @@
 		4A1BA61215800CC900B89C52 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BA61115800CC900B89C52 /* WebKit.framework */; };
 		4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA61F15810C1E00B89C52 /* DashboardController.m */; };
 		4A1BA62215810C1E00B89C52 /* DashboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BA62015810C1E00B89C52 /* DashboardController.xib */; };
-		4A1BA62D1581233900B89C52 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BA62C1581233900B89C52 /* Defines.m */; };
 		4A322E1E158642C7005B001F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A322E1D158642C7005B001F /* CoreFoundation.framework */; };
 		4A879E40157E56070018E10C /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		4A879E43157E57030018E10C /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A879E34157E52F20018E10C /* SBJson.framework */; };
 		E174A22D174BCDB900ED4332 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E174A22C174BCDB900ED4332 /* Account.m */; };
 		E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD37F4174C00EF00507BB8 /* Quickstats.m */; };
 		E1CA0709174C098A00D3398F /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
+		E1D4FD3A174D27FB00221BB3 /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD39174D27FB00221BB3 /* Events.m */; };
+		E1D4FD40174D284000221BB3 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD3F174D284000221BB3 /* APIClient.m */; };
 		E1F0E93C15803941005FF19A /* export.icns in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E93B15803941005FF19A /* export.icns */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
 		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
@@ -107,14 +108,16 @@
 		4A1BA61E15810C1E00B89C52 /* DashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardController.h; sourceTree = "<group>"; };
 		4A1BA61F15810C1E00B89C52 /* DashboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardController.m; sourceTree = "<group>"; };
 		4A1BA62015810C1E00B89C52 /* DashboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardController.xib; sourceTree = "<group>"; };
-		4A1BA62B158122F600B89C52 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
-		4A1BA62C1581233900B89C52 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		4A322E1D158642C7005B001F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4A879E29157E52F10018E10C /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		E174A22B174BCDB900ED4332 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Models/Account.h; sourceTree = "<group>"; };
 		E174A22C174BCDB900ED4332 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Models/Account.m; sourceTree = "<group>"; };
 		E1AD37F3174C00EF00507BB8 /* Quickstats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quickstats.h; path = Models/Quickstats.h; sourceTree = "<group>"; };
 		E1AD37F4174C00EF00507BB8 /* Quickstats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quickstats.m; path = Models/Quickstats.m; sourceTree = "<group>"; };
+		E1D4FD38174D27FB00221BB3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = Models/Events.h; sourceTree = "<group>"; };
+		E1D4FD39174D27FB00221BB3 /* Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Events.m; path = Models/Events.m; sourceTree = "<group>"; };
+		E1D4FD3E174D284000221BB3 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = Models/APIClient.h; sourceTree = "<group>"; };
+		E1D4FD3F174D284000221BB3 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = Models/APIClient.m; sourceTree = "<group>"; };
 		E1F0E93B15803941005FF19A /* export.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = export.icns; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = icon/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
@@ -185,8 +188,6 @@
 				E18222AB174ABF3F00DF8B8D /* Resources */,
 				4A07E81B157D37DD003624C0 /* Supporting Files */,
 				E174A22A174BCDA400ED4332 /* Models */,
-				4A1BA62B158122F600B89C52 /* Defines.h */,
-				4A1BA62C1581233900B89C52 /* Defines.m */,
 				4A07E826157D37DD003624C0 /* AppDelegate.h */,
 				4A07E827157D37DD003624C0 /* AppDelegate.m */,
 				4A07E829157D37DD003624C0 /* MainMenu.xib */,
@@ -229,10 +230,14 @@
 		E174A22A174BCDA400ED4332 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1D4FD3E174D284000221BB3 /* APIClient.h */,
+				E1D4FD3F174D284000221BB3 /* APIClient.m */,
 				E1AD37F3174C00EF00507BB8 /* Quickstats.h */,
 				E1AD37F4174C00EF00507BB8 /* Quickstats.m */,
 				E174A22B174BCDB900ED4332 /* Account.h */,
 				E174A22C174BCDB900ED4332 /* Account.m */,
+				E1D4FD38174D27FB00221BB3 /* Events.h */,
+				E1D4FD39174D27FB00221BB3 /* Events.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -360,9 +365,10 @@
 				4A07E821157D37DD003624C0 /* main.m in Sources */,
 				4A07E828157D37DD003624C0 /* AppDelegate.m in Sources */,
 				4A1BA62115810C1E00B89C52 /* DashboardController.m in Sources */,
-				4A1BA62D1581233900B89C52 /* Defines.m in Sources */,
 				E174A22D174BCDB900ED4332 /* Account.m in Sources */,
 				E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */,
+				E1D4FD3A174D27FB00221BB3 /* Events.m in Sources */,
+				E1D4FD40174D284000221BB3 /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
