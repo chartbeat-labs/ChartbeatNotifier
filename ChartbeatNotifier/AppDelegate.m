@@ -16,6 +16,8 @@
 /** How often to poll for event updates (seconds) */
 NSTimeInterval const kEventInterval = (60 * 5);
 
+NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
+
 
 @implementation AppDelegate
 
@@ -78,13 +80,6 @@ NSTimeInterval const kEventInterval = (60 * 5);
 #pragma mark -
 #pragma mark Internal Methods
 
-- (NSDictionary*) registrationDictionaryForGrowl
-{
-    NSString* path = [[NSBundle mainBundle] pathForResource: @"Growl Registration Ticket" ofType: @"growlRegDict"];
-    NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile: path];
-    return dictionary;
-}
-
 - (void)doOpenDashboard:(NSString *)aDomain
 {
     NSLog(@"doOpenDashboard(%@)", aDomain);
@@ -139,20 +134,21 @@ NSTimeInterval const kEventInterval = (60 * 5);
 
 
 - (void)checkForNewEvents:(NSTimer *)timer {
-    [Event getNewEvents:20 withBlock:^(NSArray *events, NSError *error) {
-        NSLog(@"new events? %@", [[events objectAtIndex:0] title]);
-        
-        Event *event = [events objectAtIndex:0];
-        NSString *title = event.title;
-        NSString *description = event.value;
-        [GrowlApplicationBridge notifyWithTitle:title
-                                    description:description
-                               notificationName:@"Event"
-                                       iconData:(NSData *)nil
-                                       priority:0
-                                       isSticky:YES
-                                   clickContext:nil
-                                     identifier:description];
+    [Event getNewEvents:40 withBlock:^(NSArray *events, NSError *error) {
+        NSString *iconPath = [[NSBundle mainBundle] pathForImageResource:@"export.icns"];
+        NSData *iconData = [NSData dataWithContentsOfFile:iconPath];
+        for (Event *event in events) {
+            NSString *title = event.title;
+            NSString *description = event.value;
+            [GrowlApplicationBridge notifyWithTitle:title
+                                        description:description
+                                   notificationName:kGrowlEventNotificationName
+                                           iconData:iconData
+                                           priority:0
+                                           isSticky:NO
+                                       clickContext:nil
+                                         identifier:nil];
+        }
     }];
 }
 

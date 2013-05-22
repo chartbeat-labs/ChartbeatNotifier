@@ -6,11 +6,11 @@
 	<integer>1</integer>
 	<key>AllNotifications</key>
 	<array>
-		<string>Event</string>
+		<string>Chartbeat Event</string>
 	</array>
 	<key>DefaultNotifications</key>
 	<array>
-		<string>Event</string>
+		<string>Chartbeat Event</string>
 	</array>
 </dict>
 </plist>
