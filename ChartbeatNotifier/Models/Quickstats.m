@@ -108,7 +108,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
         return;
     }
     
-    int statusCode = [(NSHTTPURLResponse*) response statusCode];
+    int statusCode = (int)[(NSHTTPURLResponse*) response statusCode];
     if (statusCode != 200) {
         NSLog(@"Got non-200 response code: %d (%@)",
               statusCode,
