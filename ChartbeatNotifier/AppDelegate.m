@@ -67,8 +67,8 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
+    [statusItem setToolTip:@"Chartbeat Notifier\nPandas"];
     [statusItem setMenu:statusMenu];
-    [statusItem setTitle:@"(loading)"];
     [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
     [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
