@@ -13,6 +13,7 @@
 
 @property NSString *title;
 @property NSString *value;
+@property NSString *type;
 
 
 - (id)initWithAttributes:(NSDictionary *)attributes;

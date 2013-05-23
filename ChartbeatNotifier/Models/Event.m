@@ -18,6 +18,7 @@ int const kMinutesAgo = 5;
 
 @synthesize value = _value;
 @synthesize title = _title;
+@synthesize type = _type;
 
 -(id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -26,6 +27,7 @@ int const kMinutesAgo = 5;
     }
     _value = [attributes valueForKeyPath:@"value"];
     _title = [attributes valueForKeyPath:@"title"];
+    _type = [attributes valueForKeyPath:@"type"];
     return self;
 }
 

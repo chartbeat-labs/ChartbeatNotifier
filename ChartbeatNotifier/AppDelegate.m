@@ -35,7 +35,7 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSLog(@"applicationDidFinishLaunching()");
+//    NSLog(@"applicationDidFinishLaunching()");
 
     dashboards = [[NSMutableDictionary alloc] init];
     
@@ -139,6 +139,9 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
     static NSString *descriptionFormat = @"Just linked from %@";
     [Event getNewEvents:kEventMinutesAgo withBlock:^(NSArray *events, NSError *error) {
         for (Event *event in events) {
+            if (![event.type isEqualToString:@"referrerpickup"]) {
+                continue;
+            }
             NSString *title = event.title;
             NSString *description = [NSString stringWithFormat:descriptionFormat,  event.value];
             
