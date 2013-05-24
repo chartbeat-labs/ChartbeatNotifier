@@ -5,6 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Growl/Growl.h>
+#import "PreferencesWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSWindowDelegate> {
   IBOutlet NSMenu *statusMenu;
@@ -19,10 +20,10 @@
     NSTimer *eventUpdateTimer;
 }
 
-@property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
-@property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
+@property (strong) PreferencesWindowController *preferencesWindowController;
 
 - (IBAction)openDashboard:(id)sender;
 - (IBAction)openDefaultDashboard:(id)sender;
+- (IBAction)openPreferences:(id)sender;
 
 @end

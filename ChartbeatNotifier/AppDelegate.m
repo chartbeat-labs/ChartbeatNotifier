@@ -12,8 +12,6 @@
 #import "Quickstats.h"
 #import "Event.h"
 
-
-
 int kEventMinutesAgo = 5;
 /** How often to poll for event updates (seconds) */
 NSTimeInterval const kEventInterval = (60 * 5);
@@ -26,9 +24,7 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 #pragma mark -
 #pragma mark Properties
 
-@synthesize fieldDomain;
-@synthesize fieldApiKey;
-
+@synthesize preferencesWindowController = _preferencesWindowController;
 
 #pragma mark -
 #pragma mark Overridden methods
@@ -38,14 +34,12 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 //    NSLog(@"applicationDidFinishLaunching()");
 
     dashboards = [[NSMutableDictionary alloc] init];
-    
-    Account *sharedAccount = [Account sharedInstance];
-    [self.fieldApiKey setStringValue:sharedAccount.apiKey];
-    [self.fieldDomain setStringValue:sharedAccount.domain];
 
     Quickstats *sharedQuickstats = [Quickstats sharedInstance];
     [sharedQuickstats startUpdating];
     [sharedQuickstats addObserver:self forKeyPath:@"formattedVisits" options:0 context:nil];
+    
+    _preferencesWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
 
     // Set up Growl
     [GrowlApplicationBridge setGrowlDelegate:self];
@@ -123,16 +117,13 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
     [self doOpenDashboard:[[Account sharedInstance] domain]];
 }
 
+- (IBAction)openPreferences:(id)sender {
+//    NSLog(@"openPreferences()");
+    [_preferencesWindowController showWindow:self];
+}
+
 #pragma mark -
 #pragma mark Delegate Methods
-
-// only used for Preferences Window
-// TODO: abstract into own controller
-- (void)windowWillClose:(NSNotification *)notification {
-    NSLog(@"windowWillClose()");
-    [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
-    [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
-}
 
 
 - (void)checkForNewEvents:(NSTimer *)timer {

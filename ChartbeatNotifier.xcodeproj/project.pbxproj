@@ -24,6 +24,8 @@
 		E1CA0709174C098A00D3398F /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
 		E1D4FD3A174D27FB00221BB3 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD39174D27FB00221BB3 /* Event.m */; };
 		E1D4FD40174D284000221BB3 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4FD3F174D284000221BB3 /* APIClient.m */; };
+		E1E8E9CE174EC3AF0099B05A /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8E9CC174EC3AF0099B05A /* PreferencesWindowController.m */; };
+		E1E8E9CF174EC3AF0099B05A /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E8E9CD174EC3AF0099B05A /* PreferencesWindowController.xib */; };
 		E1F0E9421581045E005FF19A /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E9411581045E005FF19A /* status.png */; };
 		E1F0E94B15810DD9005FF19A /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F0E94A15810DD9005FF19A /* Growl.framework */; };
 		E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */; };
@@ -119,6 +121,9 @@
 		E1D4FD39174D27FB00221BB3 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Models/Event.m; sourceTree = "<group>"; };
 		E1D4FD3E174D284000221BB3 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = Models/APIClient.h; sourceTree = "<group>"; };
 		E1D4FD3F174D284000221BB3 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = Models/APIClient.m; sourceTree = "<group>"; };
+		E1E8E9CB174EC3AF0099B05A /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesWindowController.h; path = Controllers/PreferencesWindowController.h; sourceTree = "<group>"; };
+		E1E8E9CC174EC3AF0099B05A /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesWindowController.m; path = Controllers/PreferencesWindowController.m; sourceTree = "<group>"; };
+		E1E8E9CD174EC3AF0099B05A /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesWindowController.xib; path = Controllers/PreferencesWindowController.xib; sourceTree = "<group>"; };
 		E1F0E9411581045E005FF19A /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = ChartbeatNotifier/Resources/status.png; sourceTree = "<group>"; };
 		E1F0E94A15810DD9005FF19A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		E1F0E95215812167005FF19A /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
@@ -184,6 +189,7 @@
 		4A07E81A157D37DD003624C0 /* ChartbeatNotifier */ = {
 			isa = PBXGroup;
 			children = (
+				E1E8E9C7174EC3900099B05A /* Controllers */,
 				4A1BA61D15810BF300B89C52 /* UI */,
 				E18222AB174ABF3F00DF8B8D /* Resources */,
 				4A07E81B157D37DD003624C0 /* Supporting Files */,
@@ -252,6 +258,16 @@
 			);
 			name = Resources;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		E1E8E9C7174EC3900099B05A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1E8E9CB174EC3AF0099B05A /* PreferencesWindowController.h */,
+				E1E8E9CC174EC3AF0099B05A /* PreferencesWindowController.m */,
+				E1E8E9CD174EC3AF0099B05A /* PreferencesWindowController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +368,7 @@
 				E1F0E95315812167005FF19A /* Growl Registration Ticket.growlRegDict in Resources */,
 				E1FFBEDB1581322000CDCF0F /* activestatus.png in Resources */,
 				E1571FFC174D6A00002E1501 /* icon.icns in Resources */,
+				E1E8E9CF174EC3AF0099B05A /* PreferencesWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +386,7 @@
 				E1AD37F5174C00EF00507BB8 /* Quickstats.m in Sources */,
 				E1D4FD3A174D27FB00221BB3 /* Event.m in Sources */,
 				E1D4FD40174D284000221BB3 /* APIClient.m in Sources */,
+				E1E8E9CE174EC3AF0099B05A /* PreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
