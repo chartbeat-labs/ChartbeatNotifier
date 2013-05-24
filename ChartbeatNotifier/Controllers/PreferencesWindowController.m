@@ -9,15 +9,7 @@
 #import "PreferencesWindowController.h"
 #import "Account.h"
 
-@interface PreferencesWindowController ()
-
-@end
-
 @implementation PreferencesWindowController
-
-
-// Logged Out View Properties
-@synthesize loggedOutView = _loggedOutView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -45,14 +37,13 @@
     
 }
 
-// only used for Preferences Window
-// TODO: abstract into own controller
 - (void)windowWillClose:(NSNotification *)notification {
 //    NSLog(@"windowWillClose()");
     [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
     [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
 }
 
+// TODO: there's a bug here, that it's not resizing subsequent views correctly. fix it.
 - (void)resizeWindowForView:(NSView *) newView {    
     NSSize size = newView.frame.size;
     NSRect windowFrame = [self.window contentRectForFrameRect:self.window.frame];
@@ -74,6 +65,7 @@
     [self resizeWindowForView:initialView];
     self.window.contentView = initialView;
 }
+
 - (IBAction)signOut:(id)sender {
     NSView *initialView = NO ? _loggedInView : _loggedOutView;
     [self resizeWindowForView:initialView];
