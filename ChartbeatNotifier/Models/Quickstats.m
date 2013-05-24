@@ -41,6 +41,12 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
     [self getSiteStats];
 }
 
+
+-(void)resetUpdating {
+    self.formattedVisits = @"Loading";
+    [super resetUpdating];
+}
+
 /** called by the timer when the stats counter needs to get updated */
 - (void)update:(NSTimer *)aTimer
 {

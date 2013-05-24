@@ -8,6 +8,7 @@
 
 #import "PreferencesWindowController.h"
 #import "Account.h"
+#import "Quickstats.h"
 
 @implementation PreferencesWindowController
 
@@ -37,10 +38,14 @@
     
 }
 
-- (void)windowWillClose:(NSNotification *)notification {
-//    NSLog(@"windowWillClose()");
+- (void)setAccountSettings {
     [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
     [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+//    NSLog(@"windowWillClose()");
+    [self setAccountSettings];
 }
 
 // TODO: there's a bug here, that it's not resizing subsequent views correctly. fix it.
@@ -66,9 +71,13 @@
     self.window.contentView = initialView;
 }
 
-- (IBAction)signOut:(id)sender {
-    NSView *initialView = NO ? _loggedInView : _loggedOutView;
-    [self resizeWindowForView:initialView];
-    self.window.contentView = initialView;
+- (IBAction)openApiKeyWebpage:(id)sender {
+    NSString *url = @"https://chartbeat.com/apikeys/";
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+}
+
+- (IBAction)updatePreferences:(id)sender {
+    [self setAccountSettings];
+    [[Quickstats sharedInstance] resetUpdating];
 }
 @end

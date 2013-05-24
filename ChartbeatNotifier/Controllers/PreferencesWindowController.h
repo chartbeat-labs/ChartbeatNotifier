@@ -20,7 +20,8 @@
 @property (strong) IBOutlet NSView *loggedInView;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
-- (IBAction)signOut:(id)sender;
+- (IBAction)openApiKeyWebpage:(id)sender;
+- (IBAction)updatePreferences:(id)sender;
 
 
 @end
