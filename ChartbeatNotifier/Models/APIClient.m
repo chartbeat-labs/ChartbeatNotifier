@@ -15,6 +15,14 @@ NSTimeInterval const kRequestInterval = 3;
 /** Timeout for site stats request (seconds) */
 NSTimeInterval const kRequestTimeoutInterval = 2;
 
+NSInteger const badResponseCountLimit = 3;
+
+@interface APIClient () {
+    NSInteger badResponseCount;
+}
+
+@end
+
 @implementation APIClient
 
 @synthesize receivedData = _receivedData;
@@ -72,6 +80,7 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
 }
 
 - (void)startUpdating {
+    badResponseCount = 0;
     _timer = [NSTimer scheduledTimerWithTimeInterval:self.requestInterval
                                               target:self selector:@selector(update:)
                                             userInfo:nil
@@ -120,6 +129,11 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
         NSLog(@"Got non-200 response code: %d (%@)",
               statusCode,
               [response URL]);
+        badResponseCount++;
+        if (badResponseCount == badResponseCountLimit) {
+            [self stopUpdating];
+        }
+        
         return;
     }
     
