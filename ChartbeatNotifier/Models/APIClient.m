@@ -83,6 +83,11 @@ NSTimeInterval const kRequestTimeoutInterval = 2;
     _timer = nil;
 }
 
+- (void)resetUpdating {
+    [self stopUpdating];
+    [self startUpdating];
+}
+
 /** Called by timer, override to perform work */
 - (void)update:(NSTimer *)timer {
     NSLog(@"update(%@)", timer);

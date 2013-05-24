@@ -21,6 +21,7 @@
 
 - (void)startUpdating;
 - (void)stopUpdating;
+- (void)resetUpdating;
 
 - (void)loadRequest:(NSString *)aURL;
 
