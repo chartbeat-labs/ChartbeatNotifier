@@ -37,7 +37,7 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 
     Quickstats *sharedQuickstats = [Quickstats sharedInstance];
     [sharedQuickstats startUpdating];
-    [sharedQuickstats addObserver:self forKeyPath:@"formattedVisits" options:0 context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatusItemTitle:) name:@"QuickstatsUpdated" object:nil];
     
     _preferencesWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
 
@@ -61,16 +61,21 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
-    [statusItem setToolTip:@"Chartbeat Notifier\nPandas"];
+    [statusItem setToolTip:@"Chartbeat Notifier"];
     [statusItem setMenu:statusMenu];
     [statusItem setImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"status" ofType:@"png"]]];
     [statusItem setAlternateImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"activestatus" ofType:@"png"]]];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change    context:(void *)context {
-    if ([keyPath isEqualToString:@"formattedVisits"]) {
-        [statusItem setTitle:[(Quickstats*)object formattedVisits]];
+- (void)updateStatusItemTitle:(NSNotification *)notification {
+    Quickstats *object = [notification object];
+    NSString *displayedAttribute = [[Account sharedInstance] displayedAttribute];
+    id displayedValue = [(Quickstats*)object valueForKey:displayedAttribute];
+    NSString *newTitle = displayedValue;
+    if ([displayedValue respondsToSelector:@selector(stringValue)]) {
+        newTitle = [displayedValue stringValue];
     }
+    [statusItem setTitle:newTitle];
 }
 
 #pragma mark -

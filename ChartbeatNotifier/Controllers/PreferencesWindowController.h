@@ -22,6 +22,7 @@
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
 - (IBAction)openApiKeyWebpage:(id)sender;
 - (IBAction)updatePreferences:(id)sender;
+@property (unsafe_unretained) IBOutlet NSPopUpButton *displayedAttributePopUpButton;
 
 
 @end

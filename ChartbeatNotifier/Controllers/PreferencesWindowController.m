@@ -32,6 +32,8 @@
     [self.fieldApiKey setStringValue:sharedAccount.apiKey];
     [self.fieldDomain setStringValue:sharedAccount.domain];
     
+    [self.displayedAttributePopUpButton selectItemAtIndex:sharedAccount.displayedAttributeIndex];
+    
     NSView *initialView = sharedAccount.isLoggedIn ? _loggedInView : _loggedOutView;
     [self resizeWindowForView:initialView];
     self.window.contentView = initialView;
@@ -41,6 +43,19 @@
 - (void)setAccountSettings {
     [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
     [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
+    NSString *displayedAttribute = nil;
+    NSInteger displayedAttributedIndex = [self.displayedAttributePopUpButton indexOfSelectedItem];
+    switch (displayedAttributedIndex) {
+        case 0:
+            displayedAttribute = @"formattedVisits";
+            break;
+        case 1:
+            displayedAttribute = @"engagedTime";
+        default:
+            break;
+    }
+    [[Account sharedInstance] setDisplayedAttribute:displayedAttribute];
+    [[Account sharedInstance] setDisplayedAttributeIndex:displayedAttributedIndex];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {

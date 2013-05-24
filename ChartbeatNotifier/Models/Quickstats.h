@@ -13,6 +13,7 @@
 
 @property (nonatomic) NSNumber *visits;
 @property (nonatomic) NSString *formattedVisits;
+@property (nonatomic) NSNumber *engagedTime;
 
 + (Quickstats *)sharedInstance;
 

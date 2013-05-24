@@ -14,10 +14,17 @@ NSString *const kPrefApiKey = @"apiKey";
 /** Preference key for Domain */
 NSString *const kPrefDomain = @"domain";
 
+/** Preference key for Displayed Attribute */
+NSString *const kPrefDisplayedAttribute = @"displayedAttribute";
+
+NSString *const kPrefDisplayedAttributeIndex = @"displayedAttributeIndex";
+
 @implementation Account
 
 @synthesize apiKey = _apiKey;
 @synthesize domain = _domain;
+
+@synthesize displayedAttribute = _displayedAttribute;
 
 + (Account *) sharedInstance {
     static Account *_sharedInstance = nil;
@@ -34,9 +41,11 @@ NSString *const kPrefDomain = @"domain";
     if (!self) {
         return nil;
     }
-    self.apiKey = [[NSUserDefaults standardUserDefaults] stringForKey:kPrefApiKey];
-    self.domain = [[NSUserDefaults standardUserDefaults] stringForKey:kPrefDomain];
-    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    self.apiKey = [standardUserDefaults stringForKey:kPrefApiKey];
+    self.domain = [standardUserDefaults stringForKey:kPrefDomain];
+    self.displayedAttribute = [standardUserDefaults stringForKey:kPrefDisplayedAttribute];
+    self.displayedAttributeIndex = [standardUserDefaults integerForKey:kPrefDisplayedAttributeIndex];
     return self;
 }
 
@@ -49,6 +58,16 @@ NSString *const kPrefDomain = @"domain";
 - (void)setDomain:(NSString *)domain {
     _domain = domain;
     [[NSUserDefaults standardUserDefaults] setValue:domain forKey:kPrefDomain];
+}
+
+- (void)setDisplayedAttribute:(NSString *)displayedAttribute {
+    _displayedAttribute = displayedAttribute;
+    [[NSUserDefaults standardUserDefaults] setValue:displayedAttribute forKey:kPrefDisplayedAttribute];
+}
+
+- (void)setDisplayedAttributeIndex:(NSInteger)displayedAttributeIndex {
+    _displayedAttributeIndex = displayedAttributeIndex;
+    [[NSUserDefaults standardUserDefaults] setInteger:displayedAttributeIndex forKey:kPrefDisplayedAttributeIndex];
 }
 
 - (BOOL)isLoggedIn {

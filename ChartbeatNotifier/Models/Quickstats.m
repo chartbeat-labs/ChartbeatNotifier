@@ -16,6 +16,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 
 @synthesize visits = _visits;
 @synthesize formattedVisits = _formattedVisits;
+@synthesize engagedTime = _engagedTime;
 
 + (Quickstats *)sharedInstance {
     static Quickstats *_sharedInstance = nil;
@@ -70,11 +71,14 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 
 - (void)setAttributes:(NSDictionary *)json {
     self.visits = [json objectForKey:@"visits"];
+    self.engagedTime = [json objectForKey:@"engaged_time"];
     
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
     [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
     self.formattedVisits = [numberFormatter stringFromNumber:self.visits];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QuickstatsUpdated" object:self];
 }
 
 

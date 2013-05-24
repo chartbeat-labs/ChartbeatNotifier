@@ -13,6 +13,9 @@
 @property (nonatomic) NSString *domain;
 @property (nonatomic) NSString *apiKey;
 
+@property (nonatomic) NSString *displayedAttribute;
+@property (nonatomic, assign) NSInteger displayedAttributeIndex;
+
 + (Account *) sharedInstance;
 
 - (BOOL)isLoggedIn;
