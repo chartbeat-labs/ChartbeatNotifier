@@ -387,6 +387,14 @@
 					<int key="connectionID">495</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">performClose:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="464831038"/>
+					</object>
+					<int key="connectionID">919</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">statusMenu</string>
 						<reference key="source" ref="976324537"/>
@@ -723,7 +731,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">918</int>
+			<int key="maxID">919</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
