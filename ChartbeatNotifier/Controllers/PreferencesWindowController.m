@@ -15,8 +15,9 @@
 
 @implementation PreferencesWindowController
 
-@synthesize fieldDomain = _fieldDomain;
-@synthesize fieldApiKey = _fieldApiKey;
+
+// Logged Out View Properties
+@synthesize loggedOutView = _loggedOutView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -37,14 +38,45 @@
     Account *sharedAccount = [Account sharedInstance];
     [self.fieldApiKey setStringValue:sharedAccount.apiKey];
     [self.fieldDomain setStringValue:sharedAccount.domain];
+    
+    NSView *initialView = sharedAccount.isLoggedIn ? _loggedInView : _loggedOutView;
+    [self resizeWindowForView:initialView];
+    self.window.contentView = initialView;
+    
 }
 
 // only used for Preferences Window
 // TODO: abstract into own controller
 - (void)windowWillClose:(NSNotification *)notification {
-    NSLog(@"windowWillClose()");
+//    NSLog(@"windowWillClose()");
     [[Account sharedInstance] setApiKey:[self.fieldApiKey stringValue]];
     [[Account sharedInstance] setDomain:[self.fieldDomain stringValue]];
 }
 
+- (void)resizeWindowForView:(NSView *) newView {    
+    NSSize size = newView.frame.size;
+    NSRect windowFrame = [self.window contentRectForFrameRect:self.window.frame];
+    NSRect newWindowFrame = [self.window frameRectForContentRect:
+                             NSMakeRect( NSMinX( windowFrame ), NSMaxY( windowFrame ) - size.height, size.width, size.height )];
+    [self.window setFrame:newWindowFrame display:YES animate:[self.window isVisible]];
+//    NSLog(@"    size: %@", NSStringFromSize(size));
+//    NSLog(@" loggedIn: %@", NSStringFromRect(_loggedInView.frame));
+//    NSLog(@"loggedOut: %@", NSStringFromRect(_loggedOutView.frame));
+//    NSLog(@"-----");
+}
+
+
+- (IBAction)signIn:(id)sender {
+//    NSLog(@"email value: %@", _emailTextField.stringValue);
+//    NSLog(@"password value: %@", _passwordTextField.stringValue);
+    
+    NSView *initialView = YES ? _loggedInView : _loggedOutView;
+    [self resizeWindowForView:initialView];
+    self.window.contentView = initialView;
+}
+- (IBAction)signOut:(id)sender {
+    NSView *initialView = NO ? _loggedInView : _loggedOutView;
+    [self resizeWindowForView:initialView];
+    self.window.contentView = initialView;
+}
 @end

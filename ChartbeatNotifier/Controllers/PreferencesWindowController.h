@@ -8,9 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PreferencesWindowController : NSWindowController
+@interface PreferencesWindowController : NSWindowController <NSWindowDelegate>
 
+@property (strong) IBOutlet NSView *loggedOutView;
+@property (unsafe_unretained) IBOutlet NSTextField *emailTextField;
+@property (unsafe_unretained) IBOutlet NSSecureTextField *passwordTextField;
+- (IBAction)signIn:(id)sender;
+
+
+
+@property (strong) IBOutlet NSView *loggedInView;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldApiKey;
 @property (unsafe_unretained) IBOutlet NSTextField *fieldDomain;
+- (IBAction)signOut:(id)sender;
+
 
 @end

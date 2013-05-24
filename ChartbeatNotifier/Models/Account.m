@@ -51,4 +51,8 @@ NSString *const kPrefDomain = @"domain";
     [[NSUserDefaults standardUserDefaults] setValue:domain forKey:kPrefDomain];
 }
 
+- (BOOL)isLoggedIn {
+    return _apiKey != nil && _domain != nil;
+}
+
 @end

@@ -15,4 +15,6 @@
 
 + (Account *) sharedInstance;
 
+- (BOOL)isLoggedIn;
+
 @end
