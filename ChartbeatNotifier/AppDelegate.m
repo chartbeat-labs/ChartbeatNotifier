@@ -21,6 +21,8 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 NSString *const kChartbeatDashboardFormat = @"https://chartbeat.com/dashboard/?url=%@";
 NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/dashboard/?url=%@";
 
+NSString *const kDomainMenuItemFormat = @"Domain: %@";
+
 
 @implementation AppDelegate
 
@@ -52,7 +54,9 @@ NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/
                                             userInfo:nil
                                              repeats:YES];
     [self checkForNewEvents:nil];
-
+    
+    [[Account sharedInstance] addObserver:self forKeyPath:@"domain" options:NSKeyValueObservingOptionNew context:nil];
+    [self updateDomainMenuItem];
 }
 
 - (void)applicationWillTerminate:(NSApplication *)application
@@ -94,6 +98,14 @@ NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/
         [dashboards setValue:dashboard forKey:aDomain];
     }
     [dashboard loadDashboard:aDomain apikey:[[Account sharedInstance] apiKey]];
+}
+
+- (void)updateDomainMenuItem {
+    NSString *domain = [[Account sharedInstance] domain];
+    if (!(domain.length > 0)) {
+        domain = @"Not set";
+    }
+    self.domainMenuItem.title = [NSString stringWithFormat:kDomainMenuItemFormat, domain];
 }
 
 #pragma mark -
@@ -141,7 +153,6 @@ NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/
 #pragma mark -
 #pragma mark Delegate Methods
 
-
 - (void)checkForNewEvents:(NSTimer *)timer {
     static NSString *descriptionFormat = @"Just linked from %@";
     [Event getNewEvents:kEventMinutesAgo withBlock:^(NSArray *events, NSError *error) {
@@ -162,6 +173,12 @@ NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/
                                          identifier:nil];
         }
     }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"domain"]) {
+        [self updateDomainMenuItem];
+    }
 }
 
 @end

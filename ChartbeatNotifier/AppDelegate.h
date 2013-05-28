@@ -21,6 +21,7 @@
 }
 
 @property (strong) PreferencesWindowController *preferencesWindowController;
+@property (unsafe_unretained) IBOutlet NSMenuItem *domainMenuItem;
 
 - (IBAction)openDashboard:(id)sender;
 - (IBAction)openChartbeatDashboard:(id)sender;
