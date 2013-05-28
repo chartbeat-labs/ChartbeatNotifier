@@ -94,15 +94,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartbeatNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A07E810157D37DD003624C0 /* Chartbeat Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chartbeat Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07E814157D37DD003624C0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4A07E817157D37DD003624C0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4A07E818157D37DD003624C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4A07E819157D37DD003624C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChartbeatNotifier-Info.plist"; sourceTree = "<group>"; };
+		4A07E81C157D37DD003624C0 /* Chartbeat Notifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chartbeat Notifier-Info.plist"; sourceTree = "<group>"; };
 		4A07E81E157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A07E820157D37DD003624C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChartbeatNotifier-Prefix.pch"; sourceTree = "<group>"; };
+		4A07E822157D37DD003624C0 /* Chartbeat Notifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chartbeat Notifier-Prefix.pch"; sourceTree = "<group>"; };
 		4A07E826157D37DD003624C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A07E827157D37DD003624C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A07E82A157D37DD003624C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		4A07E811157D37DD003624C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */,
+				4A07E810157D37DD003624C0 /* Chartbeat Notifier.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,10 +204,10 @@
 		4A07E81B157D37DD003624C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A07E81C157D37DD003624C0 /* ChartbeatNotifier-Info.plist */,
+				4A07E81C157D37DD003624C0 /* Chartbeat Notifier-Info.plist */,
 				4A07E81D157D37DD003624C0 /* InfoPlist.strings */,
 				4A07E820157D37DD003624C0 /* main.m */,
-				4A07E822157D37DD003624C0 /* ChartbeatNotifier-Prefix.pch */,
+				4A07E822157D37DD003624C0 /* Chartbeat Notifier-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -273,9 +273,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A07E80F157D37DD003624C0 /* ChartbeatNotifier */ = {
+		4A07E80F157D37DD003624C0 /* Chartbeat Notifier */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "ChartbeatNotifier" */;
+			buildConfigurationList = 4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "Chartbeat Notifier" */;
 			buildPhases = (
 				4A07E80C157D37DD003624C0 /* Sources */,
 				4A07E80D157D37DD003624C0 /* Frameworks */,
@@ -288,9 +288,9 @@
 			dependencies = (
 				4A879E3D157E53E80018E10C /* PBXTargetDependency */,
 			);
-			name = ChartbeatNotifier;
+			name = "Chartbeat Notifier";
 			productName = ChartbeatNotifier;
-			productReference = 4A07E810157D37DD003624C0 /* ChartbeatNotifier.app */;
+			productReference = 4A07E810157D37DD003624C0 /* Chartbeat Notifier.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +302,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Betaworks;
 			};
-			buildConfigurationList = 4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "ChartbeatNotifier" */;
+			buildConfigurationList = 4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "Chartbeat Notifier" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -320,7 +320,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				4A07E80F157D37DD003624C0 /* ChartbeatNotifier */,
+				4A07E80F157D37DD003624C0 /* Chartbeat Notifier */,
 			);
 		};
 /* End PBXProject section */
@@ -484,9 +484,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
-				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ChartbeatNotifier/Chartbeat Notifier-Prefix.pch";
+				INFOPLIST_FILE = "ChartbeatNotifier/Chartbeat Notifier-Info.plist";
+				PRODUCT_NAME = "Chartbeat Notifier";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -500,9 +500,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ChartbeatNotifier/ChartbeatNotifier-Prefix.pch";
-				INFOPLIST_FILE = "ChartbeatNotifier/ChartbeatNotifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ChartbeatNotifier/Chartbeat Notifier-Prefix.pch";
+				INFOPLIST_FILE = "ChartbeatNotifier/Chartbeat Notifier-Info.plist";
+				PRODUCT_NAME = "Chartbeat Notifier";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -510,7 +510,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "ChartbeatNotifier" */ = {
+		4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "Chartbeat Notifier" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A07E82C157D37DD003624C0 /* Debug */,
@@ -519,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "ChartbeatNotifier" */ = {
+		4A07E82E157D37DD003624C0 /* Build configuration list for PBXNativeTarget "Chartbeat Notifier" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A07E82F157D37DD003624C0 /* Debug */,
