@@ -43,6 +43,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
         [self getSiteStats];
     } else {
         [self stopUpdating];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"QuickstatsUpdated" object:self];
     }
 }
 

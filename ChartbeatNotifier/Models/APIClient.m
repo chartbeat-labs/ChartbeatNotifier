@@ -129,11 +129,7 @@ NSInteger const badResponseCountLimit = 3;
         NSLog(@"Got non-200 response code: %d (%@)",
               statusCode,
               [response URL]);
-        badResponseCount++;
-        if (badResponseCount == badResponseCountLimit) {
-            [self stopUpdating];
-        }
-        
+        [self badResponseOccured];
         return;
     }
     
@@ -153,6 +149,14 @@ NSInteger const badResponseCountLimit = 3;
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
     connection = nil;
+    [self badResponseOccured];
+}
+
+- (void)badResponseOccured {
+    badResponseCount++;
+    if (badResponseCount == badResponseCountLimit) {
+        [self stopUpdating];
+    }
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection

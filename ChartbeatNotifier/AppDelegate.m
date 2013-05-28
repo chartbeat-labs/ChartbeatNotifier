@@ -76,11 +76,15 @@ NSString *const kDomainMenuItemFormat = @"Domain: %@";
 
 - (void)updateStatusItemTitle:(NSNotification *)notification {
     Quickstats *object = [notification object];
-    NSString *displayedAttribute = [[Account sharedInstance] displayedAttribute];
+    Account *sharedAccount = [Account sharedInstance];
+    NSString *displayedAttribute = [sharedAccount displayedAttribute];
     id displayedValue = [(Quickstats*)object valueForKey:displayedAttribute];
     NSString *newTitle = displayedValue;
     if ([displayedValue respondsToSelector:@selector(stringValue)]) {
         newTitle = [displayedValue stringValue];
+    }
+    if (!sharedAccount.isLoggedIn) {
+        newTitle = @"";
     }
     [statusItem setTitle:newTitle];
 }
