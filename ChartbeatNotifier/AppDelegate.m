@@ -18,6 +18,9 @@ NSTimeInterval const kEventInterval = (60 * 5);
 
 NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
 
+NSString *const kChartbeatDashboardFormat = @"https://chartbeat.com/dashboard/?url=%@";
+NSString *const kPublishingDashboardFormat = @"https://chartbeat.com/publishing/dashboard/?url=%@";
+
 
 @implementation AppDelegate
 
@@ -116,10 +119,18 @@ NSString *const kGrowlEventNotificationName = @"Chartbeat Event";
     [self doOpenDashboard:(__bridge NSString*) domain];
 }
 
-- (IBAction)openDefaultDashboard:(id)sender
+- (IBAction)openChartbeatDashboard:(id)sender
 {
-    NSLog(@"openDefaultDashboard()");
-    [self doOpenDashboard:[[Account sharedInstance] domain]];
+//    NSLog(@"openChartbeatDashboard()");
+//    [self doOpenDashboard:[[Account sharedInstance] domain]];
+    
+    NSString *url = [NSString stringWithFormat:kChartbeatDashboardFormat, [[Account sharedInstance] domain]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+}
+
+- (IBAction)openPublishingDashboard:(id)sender {
+    NSString *url = [NSString stringWithFormat:kPublishingDashboardFormat, [[Account sharedInstance] domain]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
 - (IBAction)openPreferences:(id)sender {

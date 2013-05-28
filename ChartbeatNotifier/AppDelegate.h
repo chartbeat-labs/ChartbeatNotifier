@@ -23,7 +23,9 @@
 @property (strong) PreferencesWindowController *preferencesWindowController;
 
 - (IBAction)openDashboard:(id)sender;
-- (IBAction)openDefaultDashboard:(id)sender;
+- (IBAction)openChartbeatDashboard:(id)sender;
+- (IBAction)openPublishingDashboard:(id)sender;
+
 - (IBAction)openPreferences:(id)sender;
 
 @end

@@ -43,10 +43,8 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="446350951">
 						<reference key="NSMenu" ref="619394008"/>
-						<bool key="NSIsHidden">YES</bool>
-						<string key="NSTitle">Open Default Dashboard</string>
-						<string key="NSKeyEquiv">d</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSTitle">Open Chartbeat Dashboard</string>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<object class="NSCustomResource" key="NSOnImage" id="171491900">
 							<string key="NSClassName">NSImage</string>
@@ -57,11 +55,18 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
+					<object class="NSMenuItem" id="1069611393">
+						<reference key="NSMenu" ref="619394008"/>
+						<string key="NSTitle">Open Publishing Dashboard</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="171491900"/>
+						<reference key="NSMixedImage" ref="1070893811"/>
+					</object>
 					<object class="NSMenuItem" id="955710262">
 						<reference key="NSMenu" ref="619394008"/>
 						<bool key="NSIsDisabled">YES</bool>
 						<bool key="NSIsSeparator">YES</bool>
-						<bool key="NSIsHidden">YES</bool>
 						<string key="NSTitle"/>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -71,8 +76,7 @@
 					<object class="NSMenuItem" id="830691302">
 						<reference key="NSMenu" ref="619394008"/>
 						<string key="NSTitle">Preferences...</string>
-						<string key="NSKeyEquiv">,</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="171491900"/>
 						<reference key="NSMixedImage" ref="1070893811"/>
@@ -90,8 +94,7 @@
 					<object class="NSMenuItem" id="739197972">
 						<reference key="NSMenu" ref="619394008"/>
 						<string key="NSTitle">Quit</string>
-						<string key="NSKeyEquiv">q</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="171491900"/>
 						<reference key="NSMixedImage" ref="1070893811"/>
@@ -406,22 +409,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">openDefaultDashboard:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="855145013"/>
-					</object>
-					<int key="connectionID">912</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">openDefaultDashboard:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="446350951"/>
-					</object>
-					<int key="connectionID">913</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">openDashboard:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="215793747"/>
@@ -435,6 +422,22 @@
 						<reference key="destination" ref="830691302"/>
 					</object>
 					<int key="connectionID">916</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openPublishingDashboard:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="1069611393"/>
+					</object>
+					<int key="connectionID">921</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openChartbeatDashboard:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="446350951"/>
+					</object>
+					<int key="connectionID">922</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -482,6 +485,7 @@
 							<reference ref="446350951"/>
 							<reference ref="955710262"/>
 							<reference ref="334740756"/>
+							<reference ref="1069611393"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -687,6 +691,11 @@
 						<reference key="object" ref="496910433"/>
 						<reference key="parent" ref="215621238"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">920</int>
+						<reference key="object" ref="1069611393"/>
+						<reference key="parent" ref="619394008"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -728,12 +737,13 @@
 				<string key="911.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="917.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="918.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="920.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">919</int>
+			<int key="maxID">922</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -741,21 +751,26 @@
 					<string key="className">AppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="openChartbeatDashboard:">id</string>
 						<string key="openDashboard:">id</string>
-						<string key="openDefaultDashboard:">id</string>
 						<string key="openPreferences:">id</string>
+						<string key="openPublishingDashboard:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="openChartbeatDashboard:">
+							<string key="name">openChartbeatDashboard:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="openDashboard:">
 							<string key="name">openDashboard:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="openDefaultDashboard:">
-							<string key="name">openDefaultDashboard:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="openPreferences:">
 							<string key="name">openPreferences:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openPublishingDashboard:">
+							<string key="name">openPublishingDashboard:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
