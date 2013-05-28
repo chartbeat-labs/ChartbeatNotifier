@@ -71,7 +71,7 @@ NSString *const kPrefDisplayedAttributeIndex = @"displayedAttributeIndex";
 }
 
 - (BOOL)isLoggedIn {
-    return _apiKey != nil && _domain != nil;
+    return _apiKey.length > 0 && _domain.length > 0;
 }
 
 @end

@@ -32,9 +32,9 @@
     
     [self.displayedAttributePopUpButton selectItemAtIndex:sharedAccount.displayedAttributeIndex];
     
-    NSView *initialView = sharedAccount.isLoggedIn ? _loggedInView : _loggedOutView;
-    [self resizeWindowForView:initialView];
-    self.window.contentView = initialView;
+//    NSView *initialView = sharedAccount.isLoggedIn ? _loggedInView : _loggedOutView;
+    [self resizeWindowForView:_loggedInView];
+    self.window.contentView = _loggedInView;
     
     [self setBindings];
 }

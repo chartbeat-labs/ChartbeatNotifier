@@ -38,8 +38,12 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 }
 
 - (void)startUpdating {
-    [super startUpdating];
-    [self getSiteStats];
+    if ([[Account sharedInstance] isLoggedIn]) {
+        [super startUpdating];
+        [self getSiteStats];
+    } else {
+        [self stopUpdating];
+    }
 }
 
 
