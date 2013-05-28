@@ -26,8 +26,6 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    
     Account *sharedAccount = [Account sharedInstance];
     [self.fieldApiKey setStringValue:sharedAccount.apiKey];
     [self.fieldDomain setStringValue:sharedAccount.domain];
@@ -38,6 +36,11 @@
     [self resizeWindowForView:initialView];
     self.window.contentView = initialView;
     
+    [self setBindings];
+}
+
+- (void)setBindings {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidEndEditing:) name:NSControlTextDidEndEditingNotification object:nil];
 }
 
 - (void)setAccountSettings {
@@ -95,4 +98,14 @@
     [self setAccountSettings];
     [[Quickstats sharedInstance] resetUpdating];
 }
+
+#pragma mark -
+#pragma mark Text field methods
+
+- (void)textDidEndEditing:(NSNotification *)notification {
+    [self setAccountSettings];
+    [[Quickstats sharedInstance] resetUpdating];
+}
+
+
 @end
