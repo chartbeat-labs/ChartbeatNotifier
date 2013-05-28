@@ -43,6 +43,7 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="446350951">
 						<reference key="NSMenu" ref="619394008"/>
+						<bool key="NSIsHidden">YES</bool>
 						<string key="NSTitle">Open Default Dashboard</string>
 						<string key="NSKeyEquiv">d</string>
 						<int key="NSKeyEquivModMask">1048576</int>
@@ -60,6 +61,7 @@
 						<reference key="NSMenu" ref="619394008"/>
 						<bool key="NSIsDisabled">YES</bool>
 						<bool key="NSIsSeparator">YES</bool>
+						<bool key="NSIsHidden">YES</bool>
 						<string key="NSTitle"/>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
