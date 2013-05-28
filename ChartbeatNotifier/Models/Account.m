@@ -30,6 +30,7 @@ NSString *const kPrefDisplayedAttributeIndex = @"displayedAttributeIndex";
     static Account *_sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        [[NSUserDefaults standardUserDefaults] registerDefaults:@{kPrefApiKey: @"", kPrefDomain: @""}];
         _sharedInstance = [[Account alloc] init];
     });
     
