@@ -301,6 +301,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Betaworks;
+				TargetAttributes = {
+					4A07E80F157D37DD003624C0 = {
+						DevelopmentTeam = D7YL9RUCZ7;
+					};
+				};
 			};
 			buildConfigurationList = 4A07E80A157D37DD003624C0 /* Build configuration list for PBXProject "Chartbeat Notifier" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -478,6 +483,7 @@
 		4A07E82F157D37DD003624C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,7 +492,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChartbeatNotifier/Chartbeat Notifier-Prefix.pch";
 				INFOPLIST_FILE = "ChartbeatNotifier/Chartbeat Notifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "Chartbeat Notifier";
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -494,6 +502,7 @@
 		4A07E830157D37DD003624C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,7 +511,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChartbeatNotifier/Chartbeat Notifier-Prefix.pch";
 				INFOPLIST_FILE = "ChartbeatNotifier/Chartbeat Notifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "Chartbeat Notifier";
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
