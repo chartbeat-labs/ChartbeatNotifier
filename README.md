@@ -4,7 +4,9 @@ Mac OS X MenuBar application that shows the concurrents for your site.
 
 Supports OS X 10.7 and above.
 
-[Screenshot](https://raw.github.com/chartbeat-labs/ChartbeatNotifier/screenshot.jpg)
+**[Download Now](https://github.com/chartbeat-labs/ChartbeatNotifier/releases/download/v0.6.0/Chartbeat.Notifier.zip)**
+
+[Screenshot](https://raw.github.com/chartbeat-labs/ChartbeatNotifier/master/screenshot.jpg)
 
 # How to Use
 
