@@ -7,7 +7,7 @@
 //
 
 #import "APIClient.h"
-#import <SBJson/SBJson.h>
+#import "SBJson.h"
 
 /** How often to update the site stats (seconds) */
 NSTimeInterval const kRequestInterval = 3;
@@ -61,7 +61,7 @@ NSInteger const badResponseCountLimit = 3;
 + (NSDictionary *)parseData:(NSData *)data {
     NSString *json_string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSDictionary *parsedData = [parser objectWithString:json_string error:nil];
+    NSDictionary *parsedData = [parser objectWithString:json_string];
     return parsedData;
 }
 
