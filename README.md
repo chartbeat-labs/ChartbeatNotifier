@@ -11,6 +11,15 @@ Supports OS X 10.7 and above.
 This application lives in your menu bar.  After you open it you should see the Chartbeat icon sitting there.  Click on it and go to preferences to initially configure the application.
 
 
+# If you're having trouble...
+
+If you can't install the application you may need to disable [Apple Gatekeeper](http://support.apple.com/kb/ht5290).
+
+1. Go to Gatekeeper options under: Apple menu > System Preferences… > Security & Privacy > General tab.
+
+2. Change the setting 'Allow applications downloaded from' to **Anywhere**.
+
+
 # Dev Environment
 
 1. Clone the repo locally
