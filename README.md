@@ -6,7 +6,7 @@ Supports OS X 10.7 and above.
 
 **[Download Now](https://github.com/chartbeat-labs/ChartbeatNotifier/releases/download/v0.6.0/Chartbeat.Notifier.zip)**
 
-[Screenshot](https://raw.github.com/chartbeat-labs/ChartbeatNotifier/master/screenshot.jpg)
+![Screenshot](https://raw.github.com/chartbeat-labs/ChartbeatNotifier/master/screenshot.jpg)
 
 # How to Use
 
