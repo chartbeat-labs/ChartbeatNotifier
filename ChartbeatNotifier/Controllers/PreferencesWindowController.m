@@ -53,7 +53,8 @@
             displayedAttribute = @"formattedVisits";
             break;
         case 1:
-            displayedAttribute = @"engagedTime";
+            displayedAttribute = @"formattedEngagedtime";
+            break;
         default:
             break;
     }

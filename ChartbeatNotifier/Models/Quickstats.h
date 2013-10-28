@@ -14,6 +14,7 @@
 @property (nonatomic) NSNumber *visits;
 @property (nonatomic) NSString *formattedVisits;
 @property (nonatomic) NSNumber *engagedTime;
+@property (nonatomic) NSString *formattedEngagedtime;
 
 + (Quickstats *)sharedInstance;
 

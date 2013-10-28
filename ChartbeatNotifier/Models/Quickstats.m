@@ -17,6 +17,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 @synthesize visits = _visits;
 @synthesize formattedVisits = _formattedVisits;
 @synthesize engagedTime = _engagedTime;
+@synthesize formattedEngagedtime = _formattedEngagedtime;
 
 + (Quickstats *)sharedInstance {
     static Quickstats *_sharedInstance = nil;
@@ -50,6 +51,7 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
 
 -(void)resetUpdating {
     self.formattedVisits = @"Loading";
+    self.formattedEngagedtime = @"Loading";
     [super resetUpdating];
 }
 
@@ -82,6 +84,8 @@ NSString *const kSiteStatsFormat = @"http://api.chartbeat.com/live/quickstats?ap
     [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
     [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
     self.formattedVisits = [numberFormatter stringFromNumber:self.visits];
+    
+    self.formattedEngagedtime = [NSString stringWithFormat:@"%.1f", [self.engagedTime doubleValue]];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"QuickstatsUpdated" object:self];
 }
