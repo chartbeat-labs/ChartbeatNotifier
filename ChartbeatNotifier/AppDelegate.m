@@ -151,6 +151,13 @@ NSString *const kDomainMenuItemFormat = @"Domain: %@";
 
 - (IBAction)openPreferences:(id)sender {
 //    NSLog(@"openPreferences()");
+    
+    // Because this is a MenuBar application the windows never have active focus unless
+    // no other application is in focus.
+    // Going off of: http://stackoverflow.com/a/2706699
+    // We allow this application to have active focus regardless
+    [NSApp activateIgnoringOtherApps:YES];
+    
     [_preferencesWindowController showWindow:self];
 }
 
